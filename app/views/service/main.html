@@ -1,0 +1,24 @@
+<div class="row" ng-controller="MainCtrl" ng-init="init()">
+  <div class="col-md-4 tree-list">
+    <ul class="treeview" ng-repeat="item in tree.items">
+      <tree></tree>
+    </ul>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+  <div class="col-md-2">
+    <div id="recent-list">
+      <table class="table">
+        <tr>
+          <th>最近の投稿</th>
+          <th></th>
+        </tr>
+        <tr ng-repeat="post in resent_posts">
+          <td>{{post.path + post.title}}</td>
+          <td>{{post.created_user.name}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

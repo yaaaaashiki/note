@@ -1,0 +1,22 @@
+<a class="list-group-item tree-li">
+  <span class="badge">{{item.children.length}}</span>
+  {{item.name}}
+  <ul style="display: none;" ng-repeat="item in item.children">
+    <a class="list-group-item tree-li">
+      <span class="badge">{{item.children.length}}</span>
+      {{item.name}}
+      <ul style="display: none;" ng-repeat="item in item.children">
+        <a class="list-group-item tree-li">
+          <span class="badge">{{item.children.length}}</span>
+          {{item.name}}
+          <ul style="display: none;" ng-repeat="item in item.children">
+            <a class="list-group-item tree-li">
+              <span class="badge">{{item.children.length}}</span>
+              {{item.name}}
+            </a>
+          </ul>
+        </a>
+      </ul>
+    </a>
+  </ul>
+</a>

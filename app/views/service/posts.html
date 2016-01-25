@@ -1,0 +1,14 @@
+<div class="row" ng-controller="PostsCtrl" ng-init="init()">
+  <div class="col-md-6">
+    jkl;
+    <ul class="list-group">
+      <div ng-repeat="post in posts">
+      <a class="list-group-item" ng-href="posts/{post.id}">
+        {{post.path}}
+        <span>{{post.title}}</span>
+        {{post.created_user.name}}
+      </a>
+      </div>
+    </ul>
+  </div>
+</div>
