@@ -1,5 +1,6 @@
 @btn_click = (scope) ->
+  console.log "okok"
   $(scope).parent().children("ul").toggle(300)
 
-$("body").on "click", ".tree-li", -> btn_click(this)
+$(document).on "click", ".tree-li", -> btn_click(this)
 

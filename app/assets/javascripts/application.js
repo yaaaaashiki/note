@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery/dist/jquery.js
+//= require turbolinks
 //= require angular/angular.js
 //= require bootstrap/dist/js/bootstrap.js
 //= require angular-animate/angular-animate.js
