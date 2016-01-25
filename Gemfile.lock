@@ -28,6 +28,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_hash (1.4.1)
+      activesupport (>= 2.2.2)
     activejob (4.2.5)
       activesupport (= 4.2.5)
       globalid (>= 0.3.0)
@@ -44,6 +46,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    annotator (0.0.10)
+      activerecord (>= 3.0)
     arel (6.0.3)
     awesome_print (1.6.1)
     bcrypt (3.1.10)
@@ -213,7 +217,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_hash
   acts_as_paranoid!
+  annotator
   awesome_print
   bcrypt-ruby
   better_errors

@@ -25,7 +25,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'acts_as_paranoid', github: 'ActsAsParanoid/acts_as_paranoid'
-
+gem "active_hash"
+# モデルにカラムコメント
+gem 'annotator'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

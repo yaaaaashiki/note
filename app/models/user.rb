@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   has_secure_password
+
+
+
+  def self.current_user
+    User.find Thread.current[:user_id]
+  end
+
 end
