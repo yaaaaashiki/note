@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :users
+  resources :posts, default: {format: :json}
   get 'login', to: 'login#index', as: 'login'
   get 'logout', to: 'login#logout'
   post 'login/login'

@@ -12,7 +12,7 @@ module CurrentUser
   end
 
   def current_user_id
-    User.current_user.try(:id)
+    User.current_user
   end
 
   def set_current_user # rubocop:disable Style/AccessorMethodName
@@ -25,4 +25,3 @@ module CurrentUser
     true
   end
 end
-Status API Training Shop Blog About Pricing
