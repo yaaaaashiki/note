@@ -9,6 +9,7 @@
 ###
 angular.module 'notefrontApp'
   .controller 'PostCtrl', ($scope, Post) ->
+    @postService = new Post(serverErrorHandler)
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
@@ -16,14 +17,16 @@ angular.module 'notefrontApp'
     ]
     $scope.init = ->
       @postService = new Post(serverErrorHandler)
-      $scope.post = {
-        "created_user" : {
-          "name" : "テストユーザー",
-        },
-        "path" : "",
-        "title" : "",
-        "body" : "本文..."
-      }
+      $scope.post = @postService.find(1)
+      console.log $scope.post
+      # $scope.post = {
+      #   "created_user" : {
+      #     "name" : "テストユーザー",
+      #   },
+      #   "path" : "",
+      #   "title" : "",
+      #   "body" : "本文..."
+      # }
 
       $scope.templates =[
         {
@@ -50,6 +53,8 @@ angular.module 'notefrontApp'
         $scope.post.title = $scope.selectedTemplate.title
         $scope.post.path = $scope.selectedTemplate.path
         $scope.post.body = $scope.selectedTemplate.template_body
+
+      $scope.post.body = ""
 
       $scope.previewHtml = marked $scope.post.body
 
