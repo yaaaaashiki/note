@@ -33,6 +33,10 @@ angular
         templateUrl: '/service/posts.html'
         controller: 'PostsCtrl'
         controllerAs: 'posts'
+      .when "/posts/:id",
+        templateUrl: "/service/post.html"
+        controller: 'PostsCtrl'
+        controllerAs: "posts"
       .when '/about',
         templateUrl: '/service/about.html'
         controller: 'AboutCtrl'

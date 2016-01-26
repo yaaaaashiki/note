@@ -8,13 +8,14 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'PostCtrl', ($scope) ->
+  .controller 'PostCtrl', ($scope, Post) ->
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
       'Karma'
     ]
     $scope.init = ->
+      @postService = new Post(serverErrorHandler)
       $scope.post = {
         "created_user" : {
           "name" : "テストユーザー",
@@ -56,5 +57,8 @@ angular.module 'notefrontApp'
         $scope.previewHtml= marked $scope.post.body
       $scope.wipPost = ->
         console.log $scope.post
+
+    serverErrorHandler = ->
+        alert("サーバーでエラーが発生しました。画面を更新し、もう一度試してください。")
     return
 

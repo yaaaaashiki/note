@@ -7,12 +7,13 @@ angular.module('notefrontApp').factory 'Post', ($resource, $http) ->
       @errorHandler = errorHandler
 
     all: ->
+      console.log @service.query((->null), @errorHandler)
       @service.query((-> null), @errorHandler)
 
     find: (id, successHandler) ->
       @service.get(id: id, ((post)->
         successHandler?(post)
-        list),
+        post),
         @errorHandler)
 
     create: (attrs) ->

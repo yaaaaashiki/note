@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-
+    render json: @posts
   end
 
   def new

@@ -18,6 +18,7 @@ angular.module 'notefrontApp'
     $scope.init = ->
       @postService = new Post(serverErrorHandler)
       $scope.posts = @postService.all()
+      console.log $scope.posts
         #[
         #   {
         #     "id" : 1,
