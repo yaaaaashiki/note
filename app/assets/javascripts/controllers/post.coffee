@@ -19,6 +19,8 @@ angular.module 'notefrontApp'
       @postService = new Post(serverErrorHandler)
       if angular.isDefined($routeParams.id)
         $scope.post = @postService.find $routeParams.id
+        $scope.post.$promise.then (post) ->
+          $scope.previewHtml = marked post.body
       else
         $scope.post = {
           "created_user" : {
@@ -28,6 +30,7 @@ angular.module 'notefrontApp'
           "title" : "",
           "body" : "本文..."
         }
+        $scope.previewHtml = marked $scope.post.body
 
       $scope.templates =[
         {
@@ -54,10 +57,6 @@ angular.module 'notefrontApp'
         $scope.post.title = $scope.selectedTemplate.title
         $scope.post.path = $scope.selectedTemplate.path
         $scope.post.body = $scope.selectedTemplate.template_body
-
-      $scope.post.body = ""
-
-      $scope.previewHtml = marked $scope.post.body
 
       $scope.changeBody = ->
         $scope.previewHtml= marked $scope.post.body

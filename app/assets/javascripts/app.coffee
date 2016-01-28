@@ -36,7 +36,7 @@ angular
       .when "/posts/:id",
         templateUrl: "/service/posts/show.html"
         controller: 'PostsCtrl'
-        controllerAs: "posts"
+        controllerAs: "post"
       .when '/about',
         templateUrl: '/service/about.html'
         controller: 'AboutCtrl'
