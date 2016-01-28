@@ -9,6 +9,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (4.7.0)
     actionmailer (4.2.5)
       actionpack (= 4.2.5)
       actionview (= 4.2.5)
@@ -217,6 +218,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   active_hash
   acts_as_paranoid!
   annotator

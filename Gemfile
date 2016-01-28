@@ -28,6 +28,9 @@ gem 'acts_as_paranoid', github: 'ActsAsParanoid/acts_as_paranoid'
 gem "active_hash"
 # モデルにカラムコメント
 gem 'annotator'
+# aasm オートマトン
+gem "aasm"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

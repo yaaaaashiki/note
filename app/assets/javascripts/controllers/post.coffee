@@ -8,7 +8,8 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'PostCtrl', ($scope, Post) ->
+  .controller 'PostCtrl', ($scope, $routeParams, Post) ->
+    @postService = new Post(serverErrorHandler)
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
@@ -16,14 +17,20 @@ angular.module 'notefrontApp'
     ]
     $scope.init = ->
       @postService = new Post(serverErrorHandler)
-      $scope.post = {
-        "created_user" : {
-          "name" : "テストユーザー",
-        },
-        "path" : "",
-        "title" : "",
-        "body" : "本文..."
-      }
+      if angular.isDefined($routeParams.id)
+        $scope.post = @postService.find $routeParams.id
+        $scope.post.$promise.then (post) ->
+          $scope.previewHtml = marked post.body
+      else
+        $scope.post = {
+          "created_user" : {
+            "name" : "テストユーザー",
+          },
+          "path" : "",
+          "title" : "",
+          "body" : "本文..."
+        }
+        $scope.previewHtml = marked $scope.post.body
 
       $scope.templates =[
         {
@@ -50,8 +57,6 @@ angular.module 'notefrontApp'
         $scope.post.title = $scope.selectedTemplate.title
         $scope.post.path = $scope.selectedTemplate.path
         $scope.post.body = $scope.selectedTemplate.template_body
-
-      $scope.previewHtml = marked $scope.post.body
 
       $scope.changeBody = ->
         $scope.previewHtml= marked $scope.post.body
