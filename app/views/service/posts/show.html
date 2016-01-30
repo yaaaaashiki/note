@@ -1,5 +1,5 @@
 <div class="row" ng-controller="PostCtrl" ng-init="init()">
-  <div class="col-md-6" ng-hide="currentUser.id == post.updated_user_id">
+  <div class="col-md-6" ng-show="currentUser.id == post.updated_user_id">
     <form ng-submit="wipPost(post)">
       <div class="form-group">
         <select id="selectbasic" name="selectbasic" class="form-control" ng-model="selectedTemplate" ng-options="template.path for template in templates" ng-change="selectTemplate()">

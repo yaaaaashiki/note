@@ -8,7 +8,7 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'PostCtrl', ($scope, $routeParams, Post) ->
+  .controller 'PostCtrl', ($scope, $routeParams, Post, CurrentUser) ->
     @postService = new Post(serverErrorHandler)
     @awesomeThings = [
       'HTML5 Boilerplate'

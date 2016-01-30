@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :current_users, default: {format: :json}, only: :show
   resources :users
   resources :posts, default: {format: :json}
+  resources :tree_posts, default: {format: :json}, only: :index
   get 'login', to: 'login#index', as: 'login'
   get 'logout', to: 'login#logout'
   post 'login/login'
