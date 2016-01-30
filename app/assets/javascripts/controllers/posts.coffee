@@ -8,7 +8,7 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'PostsCtrl', ($scope, Post) ->
+  .controller 'PostsCtrl', ($scope, Post, CurrentUser) ->
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
@@ -17,7 +17,9 @@ angular.module 'notefrontApp'
 
     $scope.init = ->
       @postService = new Post(serverErrorHandler)
+      @currentUserService = new CurrentUser(serverErrorHandler)
       $scope.posts = @postService.all()
+      $scope.currentUser = @currentUserService.find()
 
     $scope.postDelete = (post) ->
       @postService.delete post

@@ -1,7 +1,7 @@
 class CurrentUsersController < ApplicationController
 
   def show
-    @current_user
+    render json: @current_user.to_json(except: [:id, :password_digest])
   end
 
 end
