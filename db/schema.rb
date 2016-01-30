@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125133024) do
+ActiveRecord::Schema.define(version: 20160130133158) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "path",            limit: 255
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160125133024) do
     t.datetime "deleted_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "aasm_state",      limit: 255
   end
 
   create_table "users", force: :cascade do |t|

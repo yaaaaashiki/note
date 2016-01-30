@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :current_users, default: {format: :json}, only: :show
   resources :users
   resources :posts, default: {format: :json}
   get 'login', to: 'login#index', as: 'login'

@@ -27,18 +27,15 @@ angular.module 'notefrontApp'
             "name" : "テストユーザー",
           },
           "path" : "",
-          "title" : "",
-          "body" : "本文..."
+          "body" : "本文...",
+          "aasm_state" : "new"
         }
         $scope.previewHtml = marked $scope.post.body
 
       $scope.templates =[
         {
-          "path" : "#{new Date().getFullYear()}/#{new Date().getMonth() + 1}/#{new Date().getDate()}",
-          "title" : "議事録",
-          "template_body" : "##{new Date().getFullYear()}/#{new Date().getMonth() + 1}/#{new Date().getDate()}\n
-          \n
-          - - -\n
+          "path" : "#{new Date().getFullYear()}/#{new Date().getMonth() + 1}/#{new Date().getDate()}:議事録",
+          "template_body" : "
           \n
           ## 遅刻欠席\n
           ### 遅刻\n
@@ -51,21 +48,24 @@ angular.module 'notefrontApp'
         }
       ]
 
-      $scope.selectedTemplate = ""
+      $scope.selectedTemplate = "テンプレートを選択してください"
+      $scope.wip = false
 
       $scope.selectTemplate = ->
-        $scope.post.title = $scope.selectedTemplate.title
         $scope.post.path = $scope.selectedTemplate.path
         $scope.post.body = $scope.selectedTemplate.template_body
+        $scope.previewHtml= marked $scope.post.body
 
       $scope.changeBody = ->
         $scope.previewHtml= marked $scope.post.body
-      $scope.wipPost = ->
-        console.log $scope.post
 
       $scope.wipPost = (post) ->
-        createdPost = @postService.create post
-
+        if post.aasm_state == "new"
+          @postService.create post
+          $scope.post.aasm_state = "wip"
+          $scope.wip = true
+        else if  post.aasm_state == "wip"
+          @postService.update post, post
 
     serverErrorHandler = ->
         alert("サーバーでエラーが発生しました。画面を更新し、もう一度試してください。")
