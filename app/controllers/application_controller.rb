@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless @user
   end
   def set_user
-    @user = session[:user_id]
+    @user = User.find session[:user_id]
   end
 end

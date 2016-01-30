@@ -1,6 +1,6 @@
 <div class="row" ng-controller="PostCtrl" ng-init="init()">
   <div class="col-md-6">
-    <form ng-submit="wipPost()">
+    <form ng-submit="wipPost(post)">
       <div class="form-group">
         <select id="selectbasic" name="selectbasic" class="form-control" ng-model="selectedTemplate" ng-options="template.path for template in templates" ng-change="selectTemplate()">
           <option value=""></option>

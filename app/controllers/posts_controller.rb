@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :create, :update, :destroy]
-
+  before_action :set_post, only: [:show, :update, :destroy]
+  protect_from_forgery except: [:create]
   def index
     @posts = Post.all
     render json: @posts
@@ -15,7 +15,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create!(post_params)
+    puts "-" * 10
+    post = Post.create(post_params)
+    puts post.errors
     render json: post, status: 201
   end
 

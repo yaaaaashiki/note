@@ -63,6 +63,10 @@ angular.module 'notefrontApp'
       $scope.wipPost = ->
         console.log $scope.post
 
+      $scope.wipPost = (post) ->
+        createdPost = @postService.create post
+
+
     serverErrorHandler = ->
         alert("サーバーでエラーが発生しました。画面を更新し、もう一度試してください。")
     return
