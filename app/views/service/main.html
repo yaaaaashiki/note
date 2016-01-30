@@ -15,7 +15,9 @@
           <th></th>
         </tr>
         <tr ng-repeat="post in resent_posts">
-          <td>{{post.path + post.title}}</td>
+          <td ng-click="preview(post)">
+            {{post.path}}
+          </td>
           <td>{{post.created_user.name}}</td>
         </tr>
       </table>

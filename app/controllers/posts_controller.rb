@@ -1,13 +1,16 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :create, :update, :destroy]
-
+  before_action :set_post, only: [:update, :show, :destroy]
+  protect_from_forgery except: [:create, :update, :destroy]
   def index
     @posts = Post.all
-    render json: @posts
+    render json: @posts.to_json(include: [
+      {created_user: {except: :password_digest}},
+      {updated_user: {except: :password_digest}}
+    ])
   end
 
   def show
-    render json: @post
+    render json: @post.to_json(include: [created_user: {except: :password_digest}, updated_user: {except: :password_digest}])
   end
 
   def new
@@ -15,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create!(post_params)
+    post = Post.create(post_params)
     render json: post, status: 201
   end
 
@@ -24,11 +27,13 @@ class PostsController < ApplicationController
   end
 
   def update
-
+    @post.update(post_params)
+    render json: @post, status: 201
   end
 
   def destroy
-
+    @post.destroy
+    render nothing: true, status: 204
   end
 
   private

@@ -16,8 +16,11 @@ angular.module('notefrontApp').factory 'Post', ($resource, $http) ->
         @errorHandler)
 
     create: (attrs) ->
-      new @service(posts: attrs).$save ((post) -> attrs.id = post.id), @errorHandler
+      new @service(post: attrs).$save ((post) -> attrs.id = post.id), @errorHandler
       attrs
 
     delete: (post) ->
       new @service().$delete { id: post.id }, (-> null), @errorHandler
+
+    update: (post, attrs) ->
+      new @service(post: attrs).$update {id: post.id}, (-> null), @errorHandler
