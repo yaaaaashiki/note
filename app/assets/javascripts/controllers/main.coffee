@@ -8,7 +8,7 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'MainCtrl', ($scope) ->
+  .controller 'MainCtrl', ($scope, Post, CurrentUser) ->
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
@@ -20,24 +20,12 @@ angular.module 'notefrontApp'
           {"name": "A"}, {"name": "B", "children": [{"name": "x", "children": [{"name": "i"}, {"name": "j"}]}, {"name": "y"}]}, {"name": "C"}
         ]
       }
-      $scope.resent_posts = [
-        {
-          "created_user" : {
-            "name" : "テストユーザー",
-          },
-          "path" : "2016/01/13",
-          "title" : "議事録",
-          "body" : "本文..."
-        },
-        {
-          "created_user" : {
-            "name" : "テストユーザー",
-          },
-          "path" : "2016/01/18",
-          "title" : "議事録",
-          "body" : "本文..."
-        }
-      ]
+      @postService = new Post(serverErrorHandler)
+      @currentUserService = new CurrentUser(serverErrorHandler)
+      $scope.resent_posts = @postService.all()
+      $scope.currentUser = @currentUserService.find()
 
+    serverErrorHandler = ->
+        alert("サーバーでエラーが発生しました。画面を更新し、もう一度試してください。")
     return
 

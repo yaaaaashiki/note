@@ -2,14 +2,18 @@
   <div class="col-md-6">
     <table class="table">
       <tr ng-repeat="post in posts">
-        <td>
-            <span ng-click="preview(post)">{{post.path}}</span>
-          <a ng-href="#/posts/{{post.id}}">
-            {{post.created_user.name}}
-          </a>
-          <button class="btn btn-danger" ng-click="postDelete(post)">
-            削除
-          </button>
+        <td ng-click="preview(post)">
+          <span>{{post.path}}</span>
+          {{post.created_user.name}}
+          <span ng-show="currentUser.id == post.updated_user.id">
+            <a ng-href="#/posts/{{post.id}}" class="btn btn-success">
+              <i class="fa fa-pencil fa-lg"></i>
+            </a>
+            <button class="btn btn-danger" ng-click="postDelete(post)">
+              <i class="fa fa-trash fa-lg"></i>
+            </button>
+          </span>
+          {{post.aasm_state}}
         </td>
       </tr>
     </table>

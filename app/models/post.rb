@@ -9,12 +9,12 @@ class Post < ActiveRecord::Base
     state :saved
     state :editing
 
-    event :wip do
+    event :wip_save do
       transitions from: :new, to: :wip
     end
   end
 
-  before_create :wip
+  before_create :wip_save
 
 
 end

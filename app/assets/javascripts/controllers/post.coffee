@@ -31,6 +31,8 @@ angular.module 'notefrontApp'
           "aasm_state" : "new"
         }
         $scope.previewHtml = marked $scope.post.body
+      @currentUserService = new CurrentUser(serverErrorHandler)
+      $scope.currentUser = @currentUserService.find()
 
       $scope.templates =[
         {

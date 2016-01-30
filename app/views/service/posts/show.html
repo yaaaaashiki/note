@@ -1,6 +1,24 @@
 <div class="row" ng-controller="PostCtrl" ng-init="init()">
+  <div class="col-md-6" ng-hide="currentUser.id == post.updated_user_id">
+    <form ng-submit="wipPost(post)">
+      <div class="form-group">
+        <select id="selectbasic" name="selectbasic" class="form-control" ng-model="selectedTemplate" ng-options="template.path for template in templates" ng-change="selectTemplate()">
+        </select>
+        <input id="path" type="text" placeholder="Title" class="form-control" ng-model="post.path" >
+        <textarea class="form-control post-body-area" id="textarea" name="textarea"
+          ng-model="post.body" ng-change="changeBody()">
+          {{post.body}}
+        </textarea>
+      </div>
+      <span ng-show="wip">
+        Succses WIP!
+      </span>
+      <button id="button1id" name="button1id" class="btn btn-success" type="submit">Save Post</button>
+      <button id="button2id" name="button2id" class="btn btn-danger">Save Post</button>
+    </form>
+  </div>
   <div class="col-md-6">
-    <h1>{{post.path}}{{post.title}}</h1>
+    <h1>{{post.path}}</h1>
     <div id="preview" ng-bind-html="previewHtml">
     </div>
   </div>

@@ -3,11 +3,14 @@ class PostsController < ApplicationController
   protect_from_forgery except: [:create, :update, :destroy]
   def index
     @posts = Post.all
-    render json: @posts.to_json(include: [:created_user, :updated_user])
+    render json: @posts.to_json(include: [
+      {created_user: {except: :password_digest}},
+      {updated_user: {except: :password_digest}}
+    ])
   end
 
   def show
-    render json: @post.to_json(include: [:created_user, :updated_user])
+    render json: @post.to_json(include: [created_user: {except: :password_digest}, updated_user: {except: :password_digest}])
   end
 
   def new
