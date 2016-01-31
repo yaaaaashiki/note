@@ -1,40 +1,41 @@
-<a class="list-group-item tree-li" ng-click="preview(item.post)">
+<li class="list-group-item" ng-click="preview(item.post)">
   <span class="badge">{{item.children.length}}</span>
-  {{item.name}}
+  <a class="tree-li">{{item.name}}</a>
   <ul style="display: none;" ng-repeat="item in item.children">
-    <a class="list-group-item tree-li" ng-click="preview(item.post)">
+    <li class="list-group-item" ng-click="preview(item.post)">
       <span class="badge">{{item.children.length}}</span>
-      {{item.name}}
+      <a class="tree-li">{{item.name}}</a>
       <ul style="display: none;" ng-repeat="item in item.children">
-        <a class="list-group-item tree-li" ng-click="preview(item.post)">
+        <li class="list-group-item" ng-click="preview(item.post)">
           <span class="badge">{{item.children.length}}</span>
-          {{item.name}}
+          <a class="tree-li">{{item.name}}</a>
           <ul style="display: none;" ng-repeat="item in item.children">
-            <a class="list-group-item tree-li" ng-click="preview(item.post)">
+            <li class="list-group-item" ng-click="preview(item.post)">
               <span class="badge">{{item.children.length}}</span>
-              {{item.name}}
+              <a class="tree-li">{{item.name}}</a>
               <ul style="display: none;" ng-repeat="item in item.children">
-                <a class="list-group-item tree-li" ng-click="preview(item.post)">
+                <li class="list-group-item" ng-click="preview(item.post)">
                   <span class="badge">{{item.children.length}}</span>
-                  {{item.name}}
+                  <a class="tree-li">{{item.name}}</a>
                   <ul style="display: none;" ng-repeat="item in item.children">
-                    <a class="list-group-item tree-li" ng-click="preview(item.post)">
+                    <li class="list-group-item" ng-click="preview(item.post)">
                       <span class="badge">{{item.children.length}}</span>
-                      {{item.name}}
+                      <a class="tree-li">{{item.name}}</a>
                       <ul style="display: none;" ng-repeat="item in item.children">
-                        <a class="list-group-item tree-li" ng-click="preview(item.post)">
+                        <li class="list-group-item" ng-click="preview(item.post)">
                           <span class="badge">{{item.children.length}}</span>
-                          {{item.name}}
-                        </a>
+                          <a class="tree-li">{{item.name}}</a>
+                        </li>
                       </ul>
-                    </a>
+                    </li>
                   </ul>
-                </a>
+                </li>
               </ul>
-            </a>
+            </li>
           </ul>
-        </a>
+        </li>
       </ul>
-    </a>
+    </li>
   </ul>
-</a>
+</li>
+
