@@ -1,11 +1,13 @@
 <div class="row" ng-controller="MainCtrl" ng-init="init()">
   <div class="col-md-4 tree-list">
-    <ul class="treeview" ng-repeat="item in tree.items">
+    <ul class="treeview" ng-repeat="item in treePosts">
       <tree></tree>
     </ul>
   </div>
   <div class="col-md-6">
-
+    <h1>{{post.path}}</h1>
+    <div id="preview" ng-bind-html="previewHtml">
+    </div>
   </div>
   <div class="col-md-2">
     <div id="recent-list">
