@@ -22,9 +22,10 @@ angular.module 'notefrontApp'
       $scope.resent_posts = @postService.all()
       $scope.currentUser = @currentUserService.find()
 
-    $scope.treePostClick = (post) ->
+    $scope.preview = (post) ->
       if post
-        location.href = "#/posts/#{post.id}"
+        $scope.post = post
+        $scope.previewHtml= marked $scope.post.body
 
     serverErrorHandler = ->
         alert("サーバーでエラーが発生しました。画面を更新し、もう一度試してください。")

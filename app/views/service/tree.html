@@ -1,28 +1,28 @@
-<a class="list-group-item tree-li" ng-click="treePostClick(item.post)">
+<a class="list-group-item tree-li" ng-click="preview(item.post)">
   <span class="badge">{{item.children.length}}</span>
   {{item.name}}
   <ul style="display: none;" ng-repeat="item in item.children">
-    <a class="list-group-item tree-li" ng-click="treePostClick(item.post)">
+    <a class="list-group-item tree-li" ng-click="preview(item.post)">
       <span class="badge">{{item.children.length}}</span>
       {{item.name}}
       <ul style="display: none;" ng-repeat="item in item.children">
-        <a class="list-group-item tree-li" ng-click="treePostClick(item.post)">
+        <a class="list-group-item tree-li" ng-click="preview(item.post)">
           <span class="badge">{{item.children.length}}</span>
           {{item.name}}
           <ul style="display: none;" ng-repeat="item in item.children">
-            <a class="list-group-item tree-li" ng-click="treePostClick(item.post)">
+            <a class="list-group-item tree-li" ng-click="preview(item.post)">
               <span class="badge">{{item.children.length}}</span>
               {{item.name}}
               <ul style="display: none;" ng-repeat="item in item.children">
-                <a class="list-group-item tree-li" ng-click="treePostClick(item.post)">
+                <a class="list-group-item tree-li" ng-click="preview(item.post)">
                   <span class="badge">{{item.children.length}}</span>
                   {{item.name}}
                   <ul style="display: none;" ng-repeat="item in item.children">
-                    <a class="list-group-item tree-li" ng-click="treePostClick(item.post)">
+                    <a class="list-group-item tree-li" ng-click="preview(item.post)">
                       <span class="badge">{{item.children.length}}</span>
                       {{item.name}}
                       <ul style="display: none;" ng-repeat="item in item.children">
-                        <a class="list-group-item tree-li" ng-click="treePostClick(item.post)">
+                        <a class="list-group-item tree-li" ng-click="preview(item.post)">
                           <span class="badge">{{item.children.length}}</span>
                           {{item.name}}
                         </a>
