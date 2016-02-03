@@ -1,0 +1,18 @@
+@import "common/_color.scss";
+
+.tree-list{
+  background-color : $black;
+  padding : 0px;
+}
+
+.treeview{
+  margin-bottom: 0px;
+  padding : 0px;
+}
+
+.list-group-item.tree-li{
+  background-color : $white;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-radius: 0px;
+}
