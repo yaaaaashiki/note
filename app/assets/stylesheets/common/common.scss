@@ -9,6 +9,18 @@
 html{height:100%}
 body{height:100%}
 div.container{height:80%}
+div.row.row-content{
+  height: 100%;
+  div.main-content{
+    height: 100%;
+    div.ng-scope{
+      height: 100%;
+      div.tree-list{
+        height : 100%;
+      }
+    }
+  }
+}
 
 textarea.post-body-area{
   resize: none;
