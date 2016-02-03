@@ -22,10 +22,15 @@ angular.module 'notefrontApp'
       $scope.resent_posts = @postService.all()
       $scope.currentUser = @currentUserService.find()
 
-    $scope.preview = (post) ->
+    $scope.preview = ($event, post) ->
       if post
         $scope.post = post
         $scope.previewHtml= marked $scope.post.body
+      else
+        target = angular.element($event.currentTarget)
+        console.log target.children("ul")
+        target.children("ul").toggle(300)
+
 
     serverErrorHandler = ->
         alert("サーバーでエラーが発生しました。画面を更新し、もう一度試してください。")
