@@ -1,0 +1,16 @@
+@import "common/_color.scss";
+
+.navbar-default {
+  background-color: $light-color;
+
+  border-color: $base-color;
+  border-radius: 0px;
+  .navbar-nav{
+    .active{
+      a{
+        color : $white;
+        background-color: $base-color;
+      }
+    }
+  }
+}
