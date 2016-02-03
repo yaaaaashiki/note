@@ -25,4 +25,6 @@
 //= require angular-sanitize/angular-sanitize.js
 //= require angular-touch/angular-touch.js
 //= require angular-bootstrap/ui-bootstrap-tpls.js
+//= require mousetrap/mousetrap.js
+//= require tabIndent.js/js/tabIndent.js
 //= require_tree .

@@ -53,6 +53,7 @@ angular.module 'notefrontApp'
       $scope.selectedTemplate = "テンプレートを選択してください"
       $scope.wip = false
 
+      tabIndent.renderAll()
       $scope.selectTemplate = ->
         $scope.post.path = $scope.selectedTemplate.path
         $scope.post.body = $scope.selectedTemplate.template_body
