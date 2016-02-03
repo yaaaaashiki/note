@@ -26,10 +26,11 @@ angular.module 'notefrontApp'
       if post
         $scope.post = post
         $scope.previewHtml= marked $scope.post.body
-      else
+      else if $event
         target = angular.element($event.currentTarget)
         target.parent().children("ul").toggle(300)
         return true
+
 
 
     serverErrorHandler = ->

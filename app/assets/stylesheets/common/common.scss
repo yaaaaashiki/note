@@ -18,11 +18,26 @@ div.row.row-content{
       div.tree-list{
         height : 100%;
       }
+      div.post-editer{
+        height : 100%;
+        form.post-form{
+          height : 100%;
+          .form-group{
+            height : 100%;
+            .form-header{
+              height : 10%;
+            }
+            textarea.post-body-area{
+              resize: none;
+              height : 80%;
+            }
+            .form-bottom{
+              height : 10%;
+            }
+          }
+        }
+      }
     }
   }
 }
 
-textarea.post-body-area{
-  resize: none;
-  height: 45em;
-}

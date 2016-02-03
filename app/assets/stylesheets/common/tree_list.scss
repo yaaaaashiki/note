@@ -1,5 +1,7 @@
+@import "common/_color.scss";
+
 .tree-list{
-  background-color : #555555;
+  background-color : $black;
   padding : 0px;
 }
 
@@ -9,7 +11,8 @@
 }
 
 .list-group-item.tree-li{
-  background-color : #eeeeee;
+  background-color : $white;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+  border-radius: 0px;
 }
