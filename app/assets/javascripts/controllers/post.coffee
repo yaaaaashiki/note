@@ -53,7 +53,16 @@ angular.module 'notefrontApp'
       $scope.selectedTemplate = "テンプレートを選択してください"
       $scope.wip = false
 
+      # タブインデント
+      # TODO controllerに書くべきでない
       tabIndent.renderAll()
+
+      # TODO テキストエリアにフォーカスしてると機能しない問題の修正
+      # TODO controller 以外に移す
+      # TODO command+s でいけるようにする
+      Mousetrap.bind 'command+shift+s',   ->
+        $scope.wipPost($scope.post)
+
       $scope.selectTemplate = ->
         $scope.post.path = $scope.selectedTemplate.path
         $scope.post.body = $scope.selectedTemplate.template_body
