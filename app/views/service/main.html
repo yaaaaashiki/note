@@ -5,7 +5,14 @@
     </ul>
   </div>
   <div class="col-md-6">
-    <h1>{{post.path}}</h1>
+    <h1>
+      {{post.path}}
+      <span ng-show="post">
+        <a ng-href="#/posts/{{post.id}}" class="btn btn-success">
+          <i class="fa fa-pencil fa-lg"></i>
+        </a>
+      </span>
+    </h1>
     <div id="preview" ng-bind-html="previewHtml">
     </div>
   </div>
