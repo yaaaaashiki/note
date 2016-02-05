@@ -14,6 +14,10 @@ class ServiceController < ApplicationController
     render layout: nil, template: "service/posts/show"
   end
 
+  def post_view
+    render layout: nil, template: "service/posts/post_view"
+  end
+
   def main
     render layout: nil
   end
