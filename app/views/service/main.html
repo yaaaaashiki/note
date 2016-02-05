@@ -9,16 +9,17 @@
   </div>
   <div class="col-md-2">
     <div id="recent-list">
-      <table class="table">
+      <table class="table table-hover">
         <tr>
           <th>最近の投稿</th>
           <th></th>
         </tr>
         <tr ng-repeat="post in resent_posts">
-          <td ng-click="preview(_, post)">
+          <td class="title" ng-click="preview(_, post)">
             {{post.path}}
           </td>
-          <td>{{post.created_user.name}}</td>
+          <td class="updated-user">{{post.updated_user.name}}</td>
+          <td class="updated-at">{{post.to_json_updated_at}}</td>
         </tr>
       </table>
     </div>
