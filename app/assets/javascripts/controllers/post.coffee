@@ -8,8 +8,7 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'PostCtrl', ($scope, $routeParams, Post, CurrentUser) ->
-    @postService = new Post(serverErrorHandler)
+  .controller 'PostCtrl', ($scope, $routeParams, Post, Template, CurrentUser) ->
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
@@ -27,28 +26,16 @@ angular.module 'notefrontApp'
             "name" : "テストユーザー",
           },
           "path" : "",
-          "body" : "本文...",
+          "body" : "",
           "aasm_state" : "new"
         }
         $scope.previewHtml = marked $scope.post.body
       @currentUserService = new CurrentUser(serverErrorHandler)
       $scope.currentUser = @currentUserService.find()
 
-      $scope.templates =[
-        {
-          "path" : "#{new Date().getFullYear()}/#{new Date().getMonth() + 1}/#{new Date().getDate()}:議事録",
-          "template_body" : "
-          \n
-          ## 遅刻欠席\n
-          ### 遅刻\n
-          -\n
-          \n
-          ### 欠席\n
-          -\n
-          \n
-          ",
-        }
-      ]
+      @templateService = new Template(serverErrorHandler)
+      $scope.templates = @templateService.all()
+
 
       $scope.selectedTemplate = "テンプレートを選択してください"
       $scope.wip = false
@@ -65,7 +52,7 @@ angular.module 'notefrontApp'
 
       $scope.selectTemplate = ->
         $scope.post.path = $scope.selectedTemplate.path
-        $scope.post.body = $scope.selectedTemplate.template_body
+        $scope.post.body = $scope.selectedTemplate.body
         $scope.previewHtml= marked $scope.post.body
 
       $scope.changeBody = ->

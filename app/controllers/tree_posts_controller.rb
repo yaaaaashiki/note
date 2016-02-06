@@ -3,8 +3,7 @@ class TreePostsController < ApplicationController
     @posts = Post.all
     @tree_posts = []
     @posts.each do |post|
-      puts post.path
-      insert @tree_posts, post.path.split("/"), post
+      Post.insert @tree_posts, post.path.split("/"), post
     end
     render json: @tree_posts
     # render json: @posts.to_json(include: [

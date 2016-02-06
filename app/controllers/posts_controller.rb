@@ -58,7 +58,7 @@ class PostsController < ApplicationController
       :id, :path, :body,
       :_destroy,
       :created_user_id, :updated_user_id,
-      :created_at, :updated_at, :deleted_id,
+       :deleted_at,
     )
   end
 

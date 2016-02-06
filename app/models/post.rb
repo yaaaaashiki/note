@@ -18,4 +18,21 @@ class Post < ActiveRecord::Base
   before_create :wip_save
 
 
+  def self.insert tree, paths, post
+    if tree.select{|block| block[:name] == paths.first}.present?
+      next_tree = tree.select{|block| block[:name] == paths.first}.first
+      next_tree[:children] = [] unless next_tree[:children]
+      insert next_tree[:children], paths.drop(1), post
+    else
+      tree << {name: paths.first}
+      if paths.count > 1
+        insert (tree.select{|block| block[:name] == paths.first}.first[:children] = []), paths.drop(1), post
+      else
+        tree.select{|block| block[:name]}.first[:post] = post
+      end
+    end
+    tree
+  end
+
+
 end
