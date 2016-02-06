@@ -1,13 +1,29 @@
+@import "common/_color.scss";
 .container{
   margin-left: 0;
   margin-right: 0;
   width: auto;
 }
 
+a:hover{/*マウスをのせたとき*/
+  color:$sub-color;
+  font-style:normal;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+a.click-edit{
+  color: $base-color;
+}
+a.click-destroy{
+  color: $black;
+}
+
+
 
 
 html{height:100%}
-body{height:100%}
+body{height:94%}
 div.container{height:100%}
 div.row.row-content{
   height: 100%;
