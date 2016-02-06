@@ -4,26 +4,28 @@
       <tree></tree>
     </ul>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-7">
     <post-view></post-view>
   </div>
-  <div class="col-md-2">
-    <div id="recent-list">
-      <table class="table table-hover">
-        <tr>
-          <th>最近の投稿</th>
-          <th></th>
-        </tr>
-        <tr ng-repeat="post in resent_posts">
-          <td class="title" ng-click="preview(_, post)">
-            {{post.path}}
-          </td>
-          <td class="updated-user">{{post.updated_user.name}}</td>
-          <td class="updated-at">{{post.to_json_updated_at}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <div class="col-md-1">
+  <div class="col-md-2 recent-list">
+    <ul class="list-group">
+      <div class="resent-post-header">
+        <h4>
+          <i class="fa fa-file-text-o"></i>
+          最近の投稿
+        </h4>
+      </div>
+      <li class="list-group-item resent-post-list" ng-repeat="post in resent_posts">
+        <span class="path">{{post.path}}</span>
+        <h4 class="title">
+          <a ng-click="preview(_, post)">
+            {{post.path.split("/")[post.path.split("/").length -1]}}
+          </a>
+        </h4>
+        <p class="updated-user-name">
+          {{post.updated_user.name}}
+        </p>
+      </li>
+    </ul>
   </div>
 </div>
