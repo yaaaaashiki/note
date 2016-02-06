@@ -1,46 +1,72 @@
 @import "common/_color.scss";
 
-form.post-form{
-  div{
-    margin-top: 4px;
-    span{
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-      border-top-left-radius: 30px;
-      border-bottom-left-radius: 30px;
-      border-right: 0px;
-      background-color: $white;
+
+.ng-scope{
+  div.col-md-4{
+    height: 100%;
+    form.post-form{
+      height: 20%;
+      div{
+        margin-top: 4px;
+        span{
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 30px;
+          border-bottom-left-radius: 30px;
+          border-right: 0px;
+          background-color: $white;
+        }
+        input{
+          border-top-right-radius: 30px;
+          border-bottom-right-radius: 30px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-left: 0px;
+          background-color: $white;
+        }
+        input:focus{
+          border-color: #ccc;
+        }
+      }
+      div.action-button{
+        text-align : right;
+        button.submit{
+          margin-right: 10px;
+        }
+      }
     }
-    input{
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-      border-left: 0px;
-      background-color: $white;
-    }
-    input:focus{
-      border-color: #ccc;
-    }
-  }
-  div.action-button{
-    text-align : right;
-    button.submit{
-      margin-right: 10px;
+    div.post-list{
+      height: 80%;
+      overflow: auto;
+      table.table-posts{
+        th.posts{
+          border-top: 0px;
+        }
+
+        margin-top: 4px;
+        td{
+          h3{
+            margin: 0px;
+            a.title{
+              color: $black;
+            }
+            .click{
+              font-size: 0.8em;
+            }
+          }
+          .updated_user_name{
+            margin-bottom: 0px;
+            margin-right: 10px;
+            text-align : right;
+            color: $black;
+          }
+        }
+        td:focus{
+          outline : #aaa;
+        }
+      }
     }
   }
 }
-table.table-posts{
-  overflow: auto;
-  th.posts{
-    border-top: 0px;
-  }
-
-  margin-top: 4px;
-  td:focus{
-    outline : #aaa;
-  }
-}
-
 
 
