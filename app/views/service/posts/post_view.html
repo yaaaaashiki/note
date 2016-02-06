@@ -1,0 +1,11 @@
+<h1>
+  {{post.path}}
+</h1>
+{{post.to_json_updated_at}}
+<span ng-show="post">
+  <a ng-href="#/posts/{{post.id}}" class="btn btn-success">
+    <i class="fa fa-pencil fa-lg"></i>
+  </a>
+</span>
+<div id="preview" style="height:800px;overflow:auto;" ng-bind-html="previewHtml">
+</div>

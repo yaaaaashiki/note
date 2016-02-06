@@ -1,0 +1,44 @@
+@import "common/_color.scss";
+
+
+div.recent-list{
+  height: 800px;
+  overflow: auto;
+  ul{
+    div.resent-post-header{
+      h4{
+        margin-top: 16px;
+        margin-bottom: 1px;
+      }
+    }
+    li.resent-post-list{
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      span.path{
+        color : $black;
+        font-size: 0.8em;
+      }
+      h4.title{
+        a{
+          color:$black;
+
+        }
+        a:hover{/*マウスをのせたとき*/
+          color:$sub-color;
+          font-style:normal;
+          text-decoration:none;
+          cursor:pointer;
+        }
+      }
+      p.updated-user-name{
+        text-align : right;
+        color: $black;
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+

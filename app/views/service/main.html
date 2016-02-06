@@ -1,37 +1,31 @@
 <div class="row" ng-controller="MainCtrl" ng-init="init()">
-  <div class="col-md-3 tree-list">
+  <div class="col-md-2 tree-list">
     <ul class="treeview" ng-repeat="item in treePosts">
       <tree></tree>
     </ul>
   </div>
-  <div class="col-md-6">
-    <h1>
-      {{post.path}}
-      <span ng-show="post">
-        <a ng-href="#/posts/{{post.id}}" class="btn btn-success">
-          <i class="fa fa-pencil fa-lg"></i>
-        </a>
-      </span>
-    </h1>
-    <div id="preview" ng-bind-html="previewHtml">
-    </div>
+  <div class="col-md-8">
+    <post-view></post-view>
   </div>
-  <div class="col-md-2">
-    <div id="recent-list">
-      <table class="table">
-        <tr>
-          <th>最近の投稿</th>
-          <th></th>
-        </tr>
-        <tr ng-repeat="post in resent_posts">
-          <td ng-click="preview(_, post)">
-            {{post.path}}
-          </td>
-          <td>{{post.created_user.name}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <div class="col-md-1">
+  <div class="col-md-2 recent-list">
+    <ul class="list-group">
+      <div class="resent-post-header">
+        <h4>
+          <i class="fa fa-file-text-o"></i>
+          最近の投稿
+        </h4>
+      </div>
+      <li class="list-group-item resent-post-list" ng-repeat="post in resent_posts">
+        <span class="path">{{post.path}}</span>
+        <h4 class="title">
+          <a ng-click="preview(_, post)">
+            {{post.path.split("/")[post.path.split("/").length -1]}}
+          </a>
+        </h4>
+        <p class="updated-user-name">
+          {{post.updated_user.name}}
+        </p>
+      </li>
+    </ul>
   </div>
 </div>

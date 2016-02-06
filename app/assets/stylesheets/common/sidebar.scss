@@ -3,16 +3,20 @@
 div.sidebar{
   padding : 0px;
   height : 100%;
+  width:80px;
   .nav-sidebar{
     height : 100%;
     background-color : $white;
-    li{
-      background-color : $white;
-      a{
-        color : $sub-color;
-        margin : 0 auto;
-        padding : 0px;
-        text-align : center;
+    ul{
+      li{
+        background-color : $white;
+        a{
+          color : $sub-color;
+          margin : 0 auto;
+          margin-top: 15px;
+          padding : 0px;
+          text-align : center;
+        }
       }
     }
   }
