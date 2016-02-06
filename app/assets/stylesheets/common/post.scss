@@ -2,6 +2,7 @@
 
 form.post-form{
   div{
+    margin-top: 4px;
     span{
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -18,5 +19,28 @@ form.post-form{
       border-left: 0px;
       background-color: $white;
     }
+    input:focus{
+      border-color: #ccc;
+    }
+  }
+  div.action-button{
+    text-align : right;
+    button.submit{
+      margin-right: 10px;
+    }
   }
 }
+table.table-posts{
+  overflow: auto;
+  th.posts{
+    border-top: 0px;
+  }
+
+  margin-top: 4px;
+  td:focus{
+    outline : #aaa;
+  }
+}
+
+
+
