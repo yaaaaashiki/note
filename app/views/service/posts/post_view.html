@@ -1,11 +1,15 @@
-<h1>
-  {{post.path}}
-</h1>
-{{post.to_json_updated_at}}
-<span ng-show="post">
-  <a ng-href="#/posts/{{post.id}}" class="btn btn-success">
-    <i class="fa fa-pencil fa-lg"></i>
-  </a>
-</span>
-<div id="preview" style="height:800px;overflow:auto;" ng-bind-html="previewHtml">
+<div class="post-view">
+  <h4 class="path">{{post.path}}</h4>
+  <h1 class="title">
+    {{post.path.split("/")[post.path.split("/").length -1]}}
+    <span ng-show="post">
+      <a ng-href="#/posts/{{post.id}}" class="click click-edit">
+        <i class="fa fa-pencil fa-lg"></i>
+      </a>
+    </span>
+  </h1>
+  {{post.updated_user.name}}
+  {{post.to_json_updated_at}}
+  <div id="preview" style="height:800px;overflow:auto;" ng-bind-html="previewHtml">
+  </div>
 </div>

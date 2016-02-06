@@ -53,6 +53,12 @@
             .click{
               font-size: 0.8em;
             }
+            a:hover{/*マウスをのせたとき*/
+              color:$sub-color;
+              font-style:normal;
+              text-decoration:none;
+              cursor:pointer;
+            }
           }
           .updated_user_name{
             margin-bottom: 0px;
