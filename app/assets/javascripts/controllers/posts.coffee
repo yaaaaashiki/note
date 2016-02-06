@@ -20,6 +20,18 @@ angular.module 'notefrontApp'
       @currentUserService = new CurrentUser(serverErrorHandler)
       $scope.posts = @postService.all()
       $scope.currentUser = @currentUserService.find()
+      $scope.search = {
+        path: "",
+        updated_user_name: ""
+      }
+
+    $scope.searchPosts = ->
+      params = {
+        "q[path_cont]" : $scope.search.path,
+        "q[updated_user_name_cont]" : $scope.search.updated_user_name,
+      }
+      $scope.posts = @postService.search(params)
+
 
     $scope.postDelete = (post) ->
       @postService.delete post

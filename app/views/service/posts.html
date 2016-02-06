@@ -1,5 +1,21 @@
 <div class="row" ng-controller="PostsCtrl" ng-init="init()">
   <div class="col-md-4">
+    <form class="post-form" ng-submit="searchPosts()">
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-search"></i></span>
+        <input type="text" class="form-control"
+          ng-model="search.path"
+          placeholder="Search for path"
+          aria-describedby="sizing-addon2"/>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="text" class="form-control"
+          ng-model="search.updated_user_name"
+          placeholder="Search for path"/>
+      </div>
+      <button class="btn btn-primary" type="submit">検索</button>
+    </form>
     <table class="table">
       <tr ng-repeat="post in posts">
         <td ng-click="preview(post)">

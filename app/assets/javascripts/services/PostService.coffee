@@ -9,6 +9,9 @@ angular.module('notefrontApp').factory 'Post', ($resource, $http) ->
     all: ->
       @service.query((-> null), @errorHandler)
 
+    search: (attrs) ->
+      @service.query(attrs, (->null), @errorHandler)
+
     find: (id, successHandler) ->
       @service.get(id: id, ((post)->
         successHandler?(post)

@@ -30,6 +30,9 @@ gem "active_hash"
 gem 'annotator'
 # aasm オートマトン
 gem "aasm"
+# 検索
+gem "ransack"
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
