@@ -25,5 +25,5 @@ angular.module('notefrontApp').factory 'Template', ($resource, $http) ->
     delete: (template) ->
       new @service().$delete { id: template.id }, (-> null), @errorHandler
 
-    update: (template, attrs) ->
-      new @service(template: attrs).$update {id: template.id}, (-> null), @errorHandler
+    update: (template) ->
+      new @service(template: template).$update {id: template.id}, (-> null), @errorHandler

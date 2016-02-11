@@ -30,4 +30,8 @@ class ServiceController < ApplicationController
     render layout: nil
   end
 
+  def template
+    render layout: nil
+  end
+
 end

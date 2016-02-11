@@ -39,7 +39,15 @@ angular
         controllerAs: "post"
       .when "/templates",
         templateUrl: '/service/templates.html'
-        controller: 'TemplateCtrl'
+        controller: 'TemplatesCtrl'
+        controllerAs: 'templates'
+      .when "/template",
+        templateUrl: '/service/template.html'
+        controller: 'TemplatesCtrl'
+        controllerAs: 'templates'
+      .when "/template/:id",
+        templateUrl: '/service/template.html'
+        controller: 'TemplatesCtrl'
         controllerAs: 'templates'
       .when '/about',
         templateUrl: '/service/about.html'

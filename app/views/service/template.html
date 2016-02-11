@@ -1,0 +1,27 @@
+<div class="row" ng-init="init()">
+  <div class="col-md-6 col-sm-5 post-editer">
+    <form ng-submit="wipTemplate(template)" class="post-form">
+      <div class="form-group">
+        <div class="form-header">
+          <input id="path" type="text" placeholder="Title" class="form-control" ng-model="template.path" >
+        </div>
+        <textarea class="form-control post-body-area tabIndent" id="textarea" name="textarea"
+          ng-model="template.body" ng-change="changeBody()" placeholder="本文">
+          {{template.body}}
+        </textarea>
+        <span ng-show="wip">
+          Succses WIP!
+        </span>
+        <div class="form-bottom">
+          <button id="button1id" name="button1id" class="btn btn-success" type="submit">Save Post</button>
+          <button id="button2id" name="button2id" class="btn btn-danger">Save Post</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6 col-sm-7">
+    <h1>{{template.path}}</h1>
+    <div id="preview" class="post-view" ng-bind-html="previewHtml">
+    </div>
+  </div>
+</div>
