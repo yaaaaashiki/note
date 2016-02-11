@@ -27,5 +27,4 @@
 //= require angular-bootstrap/ui-bootstrap-tpls.js
 //= require mousetrap/mousetrap.js
 //= require tabIndent.js/js/tabIndent.js
-//= require FormButtons/js/min/form_buttons.min.js
 //= require_tree .
