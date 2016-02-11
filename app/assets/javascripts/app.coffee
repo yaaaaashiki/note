@@ -37,6 +37,10 @@ angular
         templateUrl: "/service/posts/show.html"
         controller: 'PostsCtrl'
         controllerAs: "post"
+      .when "/templates",
+        templateUrl: '/service/templates.html'
+        controller: 'TemplateCtrl'
+        controllerAs: 'templates'
       .when '/about',
         templateUrl: '/service/about.html'
         controller: 'AboutCtrl'

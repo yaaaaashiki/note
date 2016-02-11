@@ -25,4 +25,9 @@ class ServiceController < ApplicationController
   def tree
     render layout: nil
   end
+
+  def templates
+    render layout: nil
+  end
+
 end

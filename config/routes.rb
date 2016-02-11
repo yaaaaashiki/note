@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get "/service/posts/post_view.html", to: "service#post_view"
   get "/service/main.html", to: "service#main"
   get "/service/tree.html", to: "service#tree"
+  get "/service/templates.html", to: "service#templates"
 
 end
