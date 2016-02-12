@@ -26,7 +26,7 @@ angular
         controller: 'MainCtrl'
         controllerAs: 'main'
       .when '/post',
-        templateUrl: '/service/posts/new.html'
+        templateUrl: '/service/post.html'
         controller: 'PostCtrl'
         controllerAs: 'post'
       .when '/posts',
@@ -34,8 +34,8 @@ angular
         controller: 'PostsCtrl'
         controllerAs: 'posts'
       .when "/posts/:id",
-        templateUrl: "/service/posts/show.html"
-        controller: 'PostsCtrl'
+        templateUrl: "/service/post.html"
+        controller: 'PostCtrl'
         controllerAs: "post"
       .when "/templates",
         templateUrl: '/service/templates.html'

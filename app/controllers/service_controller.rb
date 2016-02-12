@@ -1,6 +1,10 @@
 class ServiceController < ApplicationController
+
   def index
 
+  end
+  def post
+    render layout: nil
   end
   def posts
     render layout: nil
