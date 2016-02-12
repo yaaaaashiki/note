@@ -1,7 +1,7 @@
 angular.module('notefrontApp').factory 'CurrentUser', ($resource, $http) ->
   class CurrentUser
     constructor: (errorHandler) ->
-      @service = $resource('/current_users/:id',
+      @service = $resource('/api/current_users/:id',
         { id: '@id' },
         { update: { method: 'PUT' }})
       @errorHandler = errorHandler

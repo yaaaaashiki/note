@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :current_users, default: {format: :json}, only: :show
-  resources :users
-  resources :posts, default: {format: :json}
-  resources :templates, default: {format: :json}
-  resources :tree_posts, default: {format: :json}, only: :index
+  namespace :api do
+    resources :current_users, default: {format: :json}, only: :show
+    resources :users
+    resources :posts, default: {format: :json}
+    resources :templates, default: {format: :json}
+    resources :tree_posts, default: {format: :json}, only: :index
+  end
   get 'login', to: 'login#index', as: 'login'
   get 'logout', to: 'login#logout'
   post 'login/login'
@@ -19,5 +21,7 @@ Rails.application.routes.draw do
 
   get "/service/posts/show.html", to: "service#post_show"
   get "/service/posts/new.html", to: "service#post_new"
+
+
 
 end

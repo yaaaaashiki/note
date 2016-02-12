@@ -1,4 +1,4 @@
-class TemplatesController< ApplicationController
+class Api::TemplatesController< ApplicationController
   before_action :set_template, only: [:update, :show, :destroy]
   protect_from_forgery except: [:create, :update, :destroy]
   def index

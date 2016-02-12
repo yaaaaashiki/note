@@ -1,7 +1,7 @@
 angular.module('notefrontApp').factory 'Template', ($resource, $http) ->
   class Template
     constructor: (errorHandler) ->
-      @service = $resource('/templates/:id'
+      @service = $resource('/api/templates/:id'
         { id: '@id' },
         { update: { method: 'PUT' }})
       @errorHandler = errorHandler

@@ -1,4 +1,4 @@
-class TreePostsController < ApplicationController
+class Api::TreePostsController < ApplicationController
   def index
     tree_posts = Post.tree
     render json: tree_posts
