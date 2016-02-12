@@ -1,0 +1,23 @@
+@import "common/_color.scss";
+div.editer{
+  height : 100%;
+  form{
+    height : 100%;
+    .form-group{
+      height : 100%;
+      .form-header{
+        height : 10%;
+        margin-bottom: 15px;
+      }
+      textarea.body-area{
+        resize: none;
+        height : 80%;
+      }
+      .form-bottom{
+        height : 10%;
+      }
+    }
+  }
+}
+
+
