@@ -1,13 +1,13 @@
 <div class="row" ng-controller="MainCtrl" ng-init="init()">
-  <div class="col-md-2 tree-list">
+  <div class="col-md-2 col-sm-4 tree-list">
     <ul class="treeview" ng-repeat="item in treePosts">
       <tree></tree>
     </ul>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8 col-sm-8">
     <post-view></post-view>
   </div>
-  <div class="col-md-2 recent-list">
+  <div class="col-md-2 col-sm-12 recent-list">
     <ul class="list-group">
       <div class="resent-post-header">
         <h4>
@@ -15,6 +15,7 @@
           最近の投稿
         </h4>
       </div>
+      <div class="resent-post-list">
       <li class="list-group-item resent-post-list" ng-repeat="post in resent_posts">
         <span class="path">{{post.path}}</span>
         <h4 class="title">
@@ -26,6 +27,7 @@
           {{post.updated_user.name}}
         </p>
       </li>
+      </div>
     </ul>
   </div>
 </div>

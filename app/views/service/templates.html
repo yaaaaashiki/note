@@ -1,0 +1,38 @@
+<div class="row" ng-init="init()">
+  <div class="col-md-4 col-sm-4">
+    <h1>テンプレート</h1>
+    <div class="post-list">
+      <table class="table table-hover table-posts">
+        <tr>
+          <td>
+            <a ng-href="#/template" class="title">新規テンプレート</a>
+          </td>
+        </tr>
+        <tr ng-repeat="template in templates">
+          <td>
+            <span class="path">
+              {{template.path}}
+            </span>
+            <h3>
+              <a class="title" ng-click="preview(template)">
+                {{template.path.split("/")[template.path.split("/").length -1]}}
+              </a>
+              <span ng-show="currentUser.id == template.updated_user.id">
+                <a ng-href="#/template/{{template.id}}" class="click click-edit">
+                  <i class="fa fa-pencil fa-lg"></i>
+                </a>
+                <a class="click click-destroy" ng-click="templateDelete(template)">
+                  <i class="fa fa-trash fa-lg"></i>
+                </a>
+              </span>
+            </h3>
+            <p class="updated_user_name">{{template.updated_user.name}}</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-8 col-sm-8">
+    <post-view></post-view>
+  </div>
+</div>

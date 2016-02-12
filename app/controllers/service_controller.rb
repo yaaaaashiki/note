@@ -1,6 +1,10 @@
 class ServiceController < ApplicationController
+
   def index
 
+  end
+  def post
+    render layout: nil
   end
   def posts
     render layout: nil
@@ -25,4 +29,13 @@ class ServiceController < ApplicationController
   def tree
     render layout: nil
   end
+
+  def templates
+    render layout: nil
+  end
+
+  def template
+    render layout: nil
+  end
+
 end

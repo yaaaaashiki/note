@@ -8,7 +8,7 @@
           <input id="path" type="text" placeholder="Title" class="form-control" ng-model="post.path" >
         </div>
         <textarea class="form-control post-body-area tabIndent" id="textarea" name="textarea"
-          ng-model="post.body" ng-change="changeBody()">
+          ng-model="post.body" ng-change="changeBody()" placeholder="本文">
           {{post.body}}
         </textarea>
         <span ng-show="wip">
