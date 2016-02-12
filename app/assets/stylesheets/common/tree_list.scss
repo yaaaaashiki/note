@@ -5,6 +5,14 @@
   padding : 0px;
 }
 
+tree{
+  height: 500px;
+  overflow: auto;
+}
+
+.tree-ul{
+  -webkit-padding-start: 20px;
+}
 .treeview{
   margin-bottom: 0px;
   padding : 0px;

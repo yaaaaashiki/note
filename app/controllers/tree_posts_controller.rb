@@ -1,11 +1,7 @@
 class TreePostsController < ApplicationController
   def index
-    @posts = Post.all
-    @tree_posts = []
-    @posts.each do |post|
-      Post.insert @tree_posts, post.path.split("/"), post
-    end
-    render json: @tree_posts
+    tree_posts = Post.tree
+    render json: tree_posts
     # render json: @posts.to_json(include: [
     #   {created_user: {except: :password_digest}},
     #   {updated_user: {except: :password_digest}}
