@@ -1,4 +1,4 @@
-<div class="row" ng-init="init()">
+<div class="row" ng-controller="TemplatesCtrl"  ng-init="init()">
   <div class="col-md-4 col-sm-4">
     <h1>テンプレート</h1>
     <div class="post-list">
@@ -18,7 +18,7 @@
                 {{template.path.split("/")[template.path.split("/").length -1]}}
               </a>
               <span ng-show="currentUser.id == template.updated_user.id">
-                <a ng-href="#/template/{{template.id}}" class="click click-edit">
+                <a ng-href="/template/{{template.id}}" class="click click-edit">
                   <i class="fa fa-pencil fa-lg"></i>
                 </a>
                 <a class="click click-destroy" ng-click="templateDelete(template)">

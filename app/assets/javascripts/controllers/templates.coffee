@@ -8,7 +8,7 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'TemplatesCtrl', ($scope, $routeParams, CurrentUser, Template) ->
+  .controller 'TemplatesCtrl', ($scope, $location, $routeParams, CurrentUser, Template) ->
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
@@ -16,8 +16,12 @@ angular.module 'notefrontApp'
     ]
     $scope.init = ->
       @templateService = new Template(serverErrorHandler)
-      if $routeParams.id
-        $scope.template = @templateService.find($routeParams.id)
+      urls = $location.absUrl().split("/")
+      urls.indexOf("templates")
+      last = length(urls) - 1
+      id = urls[last]
+      if urls[4] not "templates"
+        $scope.template = @templateService.find id
         $scope.template.$promise.then (template) ->
           $scope.previewHtml = marked template.body
       else
