@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Api::PostsController < ApplicationController
   before_action :set_post, only: [:update, :show, :destroy]
   protect_from_forgery except: [:create, :update, :destroy]
   def index

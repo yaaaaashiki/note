@@ -8,7 +8,7 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'PostCtrl', ($scope, $routeParams, Post, Template, CurrentUser) ->
+  .controller 'PostCtrl', ($scope, $window, Post, Template, CurrentUser) ->
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
@@ -16,8 +16,9 @@ angular.module 'notefrontApp'
     ]
     $scope.init = ->
       @postService = new Post(serverErrorHandler)
-      if angular.isDefined($routeParams.id)
-        $scope.post = @postService.find $routeParams.id
+      id = $window.location.pathname.split("/")[2]
+      if id
+        $scope.post = @postService.find id
         $scope.post.$promise.then (post) ->
           $scope.previewHtml = marked post.body
       else

@@ -1,7 +1,7 @@
 angular.module('notefrontApp').factory 'Post', ($resource, $http) ->
   class Post
     constructor: (errorHandler) ->
-      @service = $resource('/posts/:id',
+      @service = $resource('/api/posts/:id',
         { id: '@id' },
         { update: { method: 'PUT' }})
       @errorHandler = errorHandler

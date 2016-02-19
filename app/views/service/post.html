@@ -1,4 +1,4 @@
-<div class="row" ng-init="init()">
+<div class="row" ng-controller="PostCtrl" ng-init="init()">
   <div class="col-md-6 col-sm-5 editer post-editer">
     <form ng-submit="wipPost(post)" class="post-form">
       <div class="form-group">
@@ -10,7 +10,6 @@
         </div>
         <textarea class="form-control body-area tabIndent" id="textarea" name="textarea"
           ng-model="post.body" ng-change="changeBody()" placeholder="本文">
-          {{post.body}}
         </textarea>
         <div class="form-bottom">
           <div class="btn-group">
