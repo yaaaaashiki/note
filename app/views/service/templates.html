@@ -5,7 +5,7 @@
       <table class="table table-hover table-posts">
         <tr>
           <td>
-            <a ng-href="#/template" class="title">新規テンプレート</a>
+            <a ng-href="templates/new" class="title">新規テンプレート</a>
           </td>
         </tr>
         <tr ng-repeat="template in templates">
@@ -18,7 +18,7 @@
                 {{template.path.split("/")[template.path.split("/").length -1]}}
               </a>
               <span ng-show="currentUser.id == template.updated_user.id">
-                <a ng-href="/template/{{template.id}}" class="click click-edit">
+                <a ng-href="/templates/{{template.id}}" class="click click-edit">
                   <i class="fa fa-pencil fa-lg"></i>
                 </a>
                 <a class="click click-destroy" ng-click="templateDelete(template)">

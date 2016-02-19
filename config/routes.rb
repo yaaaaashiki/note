@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   get "/posts/:id", to: "service#post"
   get "/post", to: "service#post"
   get "/templates", to: "service#templates"
-  get "/template", to: "service#template"
-  get "/template/:id", to: "service#template"
+  get "/templates/new", to: "service#template"
+  get "/templates/:id", to: "service#template"
 
 
 

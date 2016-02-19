@@ -17,7 +17,11 @@ angular.module 'notefrontApp'
     $scope.init = ->
       @templateService = new Template(serverErrorHandler)
       id = $location.url().split("/")[2]
-      if id
+      if id is "new"
+        $scope.template = {aasm_state: "new"}
+        $scope.template.$promise.then (template) ->
+          $scope.previewHtml = marked template.body
+      else if id
         $scope.template = @templateService.find id
         $scope.template.$promise.then (template) ->
           $scope.previewHtml = marked template.body

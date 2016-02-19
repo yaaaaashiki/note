@@ -22,3 +22,7 @@ angular
   .config ($locationProvider) ->
     $locationProvider.html5Mode(true)
 
+$(document).on 'ready page:load', () ->
+  angular.bootstrap(document.body, ['app'])
+
+
