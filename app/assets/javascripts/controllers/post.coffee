@@ -31,12 +31,14 @@ angular.module 'notefrontApp'
           "aasm_state" : "new"
         }
         $scope.previewHtml = marked $scope.post.body
+        $scope.addedTag = ""
       @currentUserService = new CurrentUser(serverErrorHandler)
       $scope.currentUser = @currentUserService.find()
 
       @templateService = new Template(serverErrorHandler)
       $scope.templates = @templateService.all()
-
+      # $scope.template.forEach (template) ->
+      #   template.path
 
       $scope.selectedTemplate = "テンプレートを選択してください"
       $scope.wip = false
@@ -58,6 +60,9 @@ angular.module 'notefrontApp'
 
       $scope.changeBody = ->
         $scope.previewHtml= marked $scope.post.body
+
+      $scope.addTag = ->
+        $scope.post.tags << $scope.addedTag
 
       $scope.wipPost = (post) ->
         if post.aasm_state == "new"
