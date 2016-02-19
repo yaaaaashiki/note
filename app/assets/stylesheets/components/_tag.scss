@@ -1,0 +1,41 @@
+@import "settings/variables/_color.scss";
+
+
+.css-tag{
+  display: inline-block;
+  position: relative;
+  margin: 0 15px 0 0;
+  padding: 0;
+  min-width: 40px;
+  height: 20px;
+  background: $gley-1;
+  text-align: center;
+
+  span{
+    color: #FFF;
+  }
+
+}
+.css-tag:before{
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 50%;
+  background: #fff;
+}
+.css-tag:after{
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: $gley-1;
+}
