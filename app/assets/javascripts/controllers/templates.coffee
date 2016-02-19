@@ -8,7 +8,7 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'TemplatesCtrl', ($scope, $location, $routeParams, CurrentUser, Template) ->
+  .controller 'TemplatesCtrl', ($scope, $window, $routeParams, CurrentUser, Template) ->
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
@@ -16,7 +16,7 @@ angular.module 'notefrontApp'
     ]
     $scope.init = ->
       @templateService = new Template(serverErrorHandler)
-      id = $location.url().split("/")[2]
+      id = $window.location.pathname.split("/")[2]
       if id is "new"
         $scope.template = {aasm_state: "new"}
         $scope.template.$promise.then (template) ->
