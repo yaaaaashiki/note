@@ -11,8 +11,9 @@ class Api::PostsController < ApplicationController
     @posts = @posts.order(updated_at: :desc)
     render json: @posts.to_json(
       include: [
+        :tags,
         {created_user: {except: :password_digest}},
-        {updated_user: {except: :password_digest}}
+        {updated_user: {except: :password_digest}},
       ],
         methods: [
           :to_json_created_at,
@@ -22,7 +23,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    render json: @post.to_json(include: [created_user: {except: :password_digest}, updated_user: {except: :password_digest}])
+    render json: @post.to_json(include: [:tags, created_user: {except: :password_digest}, updated_user: {except: :password_digest}])
   end
 
   def new
