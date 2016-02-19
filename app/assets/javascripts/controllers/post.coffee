@@ -17,7 +17,18 @@ angular.module 'notefrontApp'
     $scope.init = ->
       @postService = new Post(serverErrorHandler)
       id = $window.location.pathname.split("/")[2]
-      if id
+      if id is "new"
+        $scope.post = {
+          "created_user" : {
+            "name" : "テストユーザー",
+          },
+          "path" : "",
+          "body" : "",
+          "aasm_state" : "new"
+        }
+        $scope.previewHtml = marked $scope.post.body
+        $scope.addedTag = ""
+      else if id
         $scope.post = @postService.find id
         $scope.post.$promise.then (post) ->
           $scope.previewHtml = marked post.body
@@ -36,7 +47,7 @@ angular.module 'notefrontApp'
       $scope.currentUser = @currentUserService.find()
 
       @templateService = new Template(serverErrorHandler)
-      $scope.templates = @templateService.all()
+      $scope.templates = @templateService.select()
       # $scope.template.forEach (template) ->
       #   template.path
 
@@ -54,7 +65,7 @@ angular.module 'notefrontApp'
         $scope.wipPost($scope.post)
 
       $scope.selectTemplate = ->
-        $scope.post.path = $scope.selectedTemplate.path
+        $scope.post.path = $scope.selectedTemplate.path_set_date
         $scope.post.body = $scope.selectedTemplate.body
         $scope.previewHtml= marked $scope.post.body
 

@@ -3,16 +3,22 @@ class Api::TemplatesController< ApplicationController
   protect_from_forgery except: [:create, :update, :destroy]
   def index
     @templates = Template.all
-    render json: @templates.to_json(
-      include: [
-        {created_user: {except: :password_digest}},
-        {updated_user: {except: :password_digest}}
-      ],
-        methods: [
-          :to_json_created_at,
-          :to_json_updated_at
-      ]
-    )
+    if params[:select]
+      render json: @templates.to_json(
+        methods: :path_set_date
+      )
+    else
+      render json: @templates.to_json(
+        include: [
+          {created_user: {except: :password_digest}},
+          {updated_user: {except: :password_digest}}
+        ],
+          methods: [
+            :to_json_created_at,
+            :to_json_updated_at
+        ]
+      )
+    end
   end
 
 

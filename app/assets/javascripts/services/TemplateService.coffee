@@ -9,6 +9,9 @@ angular.module('notefrontApp').factory 'Template', ($resource, $http) ->
     all: ->
       @service.query((-> null), @errorHandler)
 
+    select: ->
+      @service.query({select: true}, (->null), @errorHandler)
+
     search: (attrs) ->
       @service.query(attrs, (->null), @errorHandler)
 
