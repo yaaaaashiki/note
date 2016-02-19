@@ -6,7 +6,6 @@ class CreateTemplates < ActiveRecord::Migration
       t.integer :created_user_id
       t.integer :updated_user_id
       t.datetime :deleted_at
-      t.timestamps null: false
 
       t.timestamps null: false
     end

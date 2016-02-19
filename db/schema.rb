@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206155807) do
+ActiveRecord::Schema.define(version: 20160219071721) do
+
+  create_table "post_tags", force: :cascade do |t|
+    t.integer  "post_id",    limit: 4
+    t.integer  "tag_id",     limit: 4
+    t.datetime "deleted_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "path",            limit: 255
@@ -22,6 +30,15 @@ ActiveRecord::Schema.define(version: 20160206155807) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "aasm_state",      limit: 255
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.integer  "created_user_id", limit: 4
+    t.integer  "updated_user_id", limit: 4
+    t.datetime "deleted_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "templates", force: :cascade do |t|
