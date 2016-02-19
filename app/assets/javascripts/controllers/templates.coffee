@@ -16,11 +16,8 @@ angular.module 'notefrontApp'
     ]
     $scope.init = ->
       @templateService = new Template(serverErrorHandler)
-      urls = $location.absUrl().split("/")
-      urls.indexOf("templates")
-      last = length(urls) - 1
-      id = urls[last]
-      if urls[4] not "templates"
+      id = $location.url().split("/")[2]
+      if id
         $scope.template = @templateService.find id
         $scope.template.$promise.then (template) ->
           $scope.previewHtml = marked template.body

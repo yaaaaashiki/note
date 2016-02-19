@@ -41,7 +41,7 @@
                 {{post.path.split("/")[post.path.split("/").length -1]}}
               </a>
               <span ng-show="currentUser.id == post.updated_user.id">
-                <a ng-href="#/posts/{{post.id}}" class="click click-edit">
+                <a href="/posts/{{post.id}}" class="click click-edit">
                   <i class="fa fa-pencil fa-lg"></i>
                 </a>
                 <a class="click click-destroy" ng-click="postDelete(post)">
