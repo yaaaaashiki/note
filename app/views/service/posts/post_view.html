@@ -8,8 +8,14 @@
       </a>
     </span>
   </h1>
-  {{post.updated_user.name}}
-  {{post.to_json_updated_at}}
+  <div class="post-data">
+    <span class="updated_at">
+      {{post.to_json_updated_at}}
+    </span>
+    <span class="updated_user is-right">
+      {{post.updated_user.name}}
+    </span>
+  </div>
   <div id="preview" style="height:800px;overflow:auto;" ng-bind-html="previewHtml">
   </div>
 </div>
