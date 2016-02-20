@@ -1,5 +1,9 @@
 <div class="post-view">
-  <h4 class="path">{{post.path}}</h4>
+  <h4 class="path">
+    <a ng-href="/" ng-repeat='dir in post.path.split("/")'>
+    /{{dir}}
+    </a>
+  </h4>
   <h1 class="title">
     {{post.path.split("/")[post.path.split("/").length -1]}}
     <span ng-show="post">
