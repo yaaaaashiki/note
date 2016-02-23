@@ -1,0 +1,22 @@
+.row[ng-controller="MainCtrl" ng-init="init()"]
+  .col-md-2.col-sm-4.tree-list
+    - @tree_posts.each do |tree_post|
+      ul.treeview
+        == render partial: "tree", locals: {tree_post: tree_post}
+  .col-md-8.col-sm-8
+    post-view
+  .col-md-2.col-sm-12.recent-list
+    ul.list-group
+    .resent-post-header
+      h4
+        i.fa.fa-file-text-o
+        |  最近の投稿
+    .resent-post-list
+      li.list-group-item.resent-post-list[ng-repeat="post in resent_posts"]
+        span.path
+          | {{post.path}}
+        h4.title
+          a[ng-click="preview(_, post)"]
+            |  {{post.path.split("/")[post.path.split("/").length -1]}}
+        p.updated-user-name
+          |  {{post.updated_user.name}}
