@@ -14,13 +14,24 @@
     .nav-sidebar{
       height : 100%;
       ul{
+        margin-top: 16px;
         li{
+          height: 80px;
           a{
             margin : 0 auto;
-            margin-top: 15px;
+            margin-top: 0px;
             padding : 0px;
             text-align : center;
           }
+        }
+        li.active:after{
+          position: absolute;
+          right: 0;
+          top: 40px - 16;
+          content: "";
+          display: inline-block;
+          border: 16px solid transparent;
+          border-right-color: #fff;
         }
       }
     }
@@ -54,17 +65,23 @@
   }
 }
 div.sidebar{
+  background-color : $base-color;
   .nav-sidebar{
-    background-color : $white;
     ul{
       li{
         a{
-          color : $sub-color;
+          color : $base-color * 1.5;
           text-align : center;
+        }
+        a:hover{
+          background-color: $base-color;
+          color: $white;
         }
       }
       li.active{
-        background-color : $gley-2;
+        a{
+          color : $white;
+        }
       }
     }
   }
