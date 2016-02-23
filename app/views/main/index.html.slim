@@ -4,7 +4,7 @@
       ul.treeview
         == render partial: "tree", locals: {tree_post: tree_post}
   .col-md-7.col-sm-8
-    post-view
+    = render partial: "share/post_preview"
   .col-md-3.col-sm-12.recent-list
     ul.list-group
       .resent-post-header

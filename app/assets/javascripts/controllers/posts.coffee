@@ -46,6 +46,7 @@ angular.module 'notefrontApp'
       $scope.post = @postService.find id
       $scope.post.$promise.then (post) ->
         $scope.previewHtml= marked post.body
+        $scope.post_path_split = post.path.split "/"
 
     serverErrorHandler = ->
         alert("サーバーでエラーが発生しました。画面を更新し、もう一度試してください。")

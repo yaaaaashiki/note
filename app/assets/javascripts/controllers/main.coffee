@@ -21,12 +21,14 @@ angular.module 'notefrontApp'
       @currentUserService = new CurrentUser(serverErrorHandler)
       $scope.resent_posts = @postService.all()
       $scope.currentUser = @currentUserService.find()
+      $scope.post_path_split = []
 
     $scope.preview = ($event, id) ->
       if id
         $scope.post = @postService.find id
         $scope.post.$promise.then (post) ->
           $scope.previewHtml= marked post.body
+          $scope.post_path_split = post.path.split "/"
       else if $event
         target = angular.element($event.currentTarget)
         target.parent().children("ul").toggle(300)
