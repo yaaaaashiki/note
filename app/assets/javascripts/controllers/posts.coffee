@@ -35,13 +35,18 @@ angular.module 'notefrontApp'
       $scope.posts = @postService.search(params)
 
 
-    $scope.postDelete = (post) ->
-      @postService.delete post
+    $scope.post_path_split = ->
+      $scope.post.path.split "/"
+
+    $scope.postDelete = (id) ->
+      @postService.delete id
       $scope.posts.splice $scope.posts.indexOf(post), 1
 
-    $scope.preview = (post) ->
-      $scope.post = post
-      $scope.previewHtml= marked $scope.post.body
+    $scope.preview = (id) ->
+      $scope.post = @postService.find id
+      $scope.post.$promise.then (post) ->
+        $scope.previewHtml= marked post.body
+        $scope.post_path_split = post.path.split "/"
 
     serverErrorHandler = ->
         alert("サーバーでエラーが発生しました。画面を更新し、もう一度試してください。")

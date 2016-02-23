@@ -1,0 +1,30 @@
+.row[ng-controller="PostCtrl" ng-init="init()"]
+  .col-md-6.col-sm-5.editer.post-editer
+    form.post-form
+      .form-group
+        .form-header
+          h3
+            | 投稿編集
+          select#selectbasic.form-control[name="selectbasic" ng-model="selectedTemplate" ng-options="template.path_set_date for template in templates" ng-change="selectTemplate()"]
+
+          input#path.form-control[type="text" placeholder="Title" ng-model="post.path"]
+        textarea#textarea.form-control.body-area.tabIndent[name="textarea" ng-model="post.body" ng-change="changeBody()" placeholder="本文"]
+
+        .form-inline
+          div[ng-repeat="tag in post.tags"]
+            a.css-tag
+              span
+                | {{tag.name}}
+          input#tag[type="text" placeholder="Tag" ng-model="addedTag" ng-change="addTag"]
+        .form-bottom
+          .btn-group
+            span[ng-show="wip"]
+              |  Succses WIP!
+            button#button1id.btn.btn-success[name="button1id" ng-click="wipPost(post)"]
+              | Save Post
+            button#button2id.btn.btn-danger[name="button2id"]
+              | Save Post
+  .col-md-6.col-sm-7
+    h1
+      | {{post.path}}
+    #preview.post-view[ng-bind-html="previewHtml"]

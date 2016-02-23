@@ -1,0 +1,19 @@
+.post-view
+  h4.path
+    - @post.path.split("/").each do |category|
+      a[ng-href="/"]
+        | /
+        = category
+  h1.title
+    = @post.path.split("/").last
+    span
+      = link_to edit_post_path(@post), class: "click click-edit" do
+        i.fa.fa-pencil.fa-lg
+  .post-data
+    span.updated_at
+      = @post.updated_at
+    span.updated_user.is-right
+      = @post.updated_user.name
+  .post-body#preview
+    / TODO マークダウンコンパイラ統一したい ruby でやるか js でやるか
+    = html_pipeline(@post.body).html_safe

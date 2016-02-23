@@ -1,0 +1,16 @@
+.post-view
+  h4.path
+    a[ng-href="/" ng-repeat="dir in post_path_split"]
+      |  /{{dir}}
+  h1.title
+    a.click.click-show[ng-href="/posts/{{post.id}}"]
+      |  {{post.path.split("/")[post.path.split("/").length -1]}}
+    span[ng-show="post"]
+      a.click.click-edit[ng-href="/posts/{{post.id}}/edit"]
+        i.fa.fa-pencil.fa-lg
+  .post-data
+    span.updated_at
+      |  {{post.to_json_updated_at}}
+    span.updated_user.is-right
+      |  {{post.updated_user.name}}
+  .post-body#preview[ng-bind-html="previewHtml"]

@@ -1,0 +1,45 @@
+.row[ng-controller="PostsCtrl" ng-init="init()"]
+  .col-md-4
+    form.post-form[ng-submit="searchPosts()"]
+      .input-group
+        span#sizing-addon2.input-group-addon
+          i.fa.fa-search
+        input.form-control[type="text" ng-model="search.path" placeholder="Search for path" aria-describedby="sizing-addon2"]
+      .input-group
+        span.input-group-addon
+          i.fa.fa-user
+        input.form-control[type="text" ng-model="search.updated_user_name" placeholder="Search for user"]
+      .input-group
+        span.input-group-addon
+          i.fa.fa-file-text-o
+        input.form-control[type="text" ng-model="search.body" placeholder="Search for body"]
+      .action-button
+        button.btn.btn-primary.submit[type="submit"]
+          i.fa.fa-search
+    .post-list
+      table.table.table-hover.table-posts
+        tr
+          th.posts
+            | Posts
+        - @posts.each do |post|
+          tr
+            td
+              span.path
+              = post.path
+              h3
+                a.title[ng-click="preview(#{post.id})"]
+                  = post.path.split("/").last
+                span
+                  = link_to edit_post_path(post), class: "click click-edit" do
+                    i.fa.fa-pencil.fa-lg
+                  = link_to post, class: "click click-destroy", method: :delete do
+                    i.fa.fa-trash.fa-lg
+              - post.tags.each do |tag|
+                div
+                  a.css-tag
+                    span
+                      = tag.name
+                p.updated_user_name
+                  = post.updated_user.name
+  .col-md-8
+    = render partial: "share/post_preview"
