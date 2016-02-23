@@ -1,20 +1,21 @@
 .row[ng-controller="PostsCtrl" ng-init="init()"]
+  / Post 検索用フォーム
   .col-md-4
-    form.post-form[ng-submit="searchPosts()"]
+    = search_form_for @search, class: "post-form" do |f|
       .input-group
-        span#sizing-addon2.input-group-addon
+        span.input-group-addon
           i.fa.fa-search
-        input.form-control[type="text" ng-model="search.path" placeholder="Search for path" aria-describedby="sizing-addon2"]
+        = f.text_field :path_cont, class: "form-control", placeholder: "Search for path"
       .input-group
         span.input-group-addon
           i.fa.fa-user
-        input.form-control[type="text" ng-model="search.updated_user_name" placeholder="Search for user"]
+        = f.text_field :updated_user_name_cont, class: "form-control", placeholder: "Search for path"
       .input-group
         span.input-group-addon
           i.fa.fa-file-text-o
-        input.form-control[type="text" ng-model="search.body" placeholder="Search for body"]
+        = f.text_field :body_cont, class: "form-control", placeholder: "Search for path"
       .action-button
-        button.btn.btn-primary.submit[type="submit"]
+        = button_tag type: :submit, class: "btn btn-primary" do
           i.fa.fa-search
     .post-list
       table.table.table-hover.table-posts

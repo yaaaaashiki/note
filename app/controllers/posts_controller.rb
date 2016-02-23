@@ -2,8 +2,8 @@ require "html/pipeline"
 class PostsController < ApplicationController
   before_action :set_post, only: [:destroy, :show]
   def index
-    search = Post.search(params[:q])
-    @posts = search.result
+    @search = Post.search(params[:q])
+    @posts = @search.result
     @posts = @posts.order(updated_at: :desc)
   end
 
