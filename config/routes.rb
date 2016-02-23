@@ -22,14 +22,16 @@ Rails.application.routes.draw do
   get "/service/posts/new.html", to: "service#post_new"
 
   get "/", to: "service#main", as: "top"
-  get "/posts", to: "service#posts"
-  get "/posts/:id", to: "service#posts"
-  get "/posts/new", to: "service#post"
-  get "/posts/:id/edit", to: "service#post"
+  # get "/posts", to: "service#posts"
+  # get "/posts/:id", to: "service#posts"
+  # get "/posts/new", to: "service#post"
+  # get "/posts/:id/edit", to: "service#post"
   get "/templates", to: "service#templates"
   get "/templates/new", to: "service#template"
   get "/templates/:id", to: "service#template"
 
+
+  resources :posts
 
 
 end
