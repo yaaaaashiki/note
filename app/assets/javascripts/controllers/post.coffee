@@ -8,7 +8,7 @@
  # Controller of the notefrontApp
 ###
 angular.module 'notefrontApp'
-  .controller 'PostCtrl', ($scope, $window, Post, Template, CurrentUser) ->
+  .controller 'PostCtrl', ($scope, $window, $timeout, Post, Template, CurrentUser) ->
     @awesomeThings = [
       'HTML5 Boilerplate'
       'AngularJS'
@@ -27,22 +27,15 @@ angular.module 'notefrontApp'
           "aasm_state" : "new"
         }
         $scope.previewHtml = marked $scope.post.body
+        $scope.post_path_split = $scope.post.path.split "/"
         $scope.addedTag = ""
       else if id
         $scope.post = @postService.find id
         $scope.post.$promise.then (post) ->
           $scope.previewHtml = marked post.body
-      else
-        $scope.post = {
-          "created_user" : {
-            "name" : "テストユーザー",
-          },
-          "path" : "",
-          "body" : "",
-          "aasm_state" : "new"
-        }
-        $scope.previewHtml = marked $scope.post.body
-        $scope.addedTag = ""
+          $scope.post_path_split = post.path.split "/"
+          console.log post
+      $scope.addedTag = ""
       @currentUserService = new CurrentUser(serverErrorHandler)
       $scope.currentUser = @currentUserService.find()
 
@@ -64,24 +57,29 @@ angular.module 'notefrontApp'
       Mousetrap.bind 'command+shift+s',   ->
         $scope.wipPost($scope.post)
 
-      $scope.selectTemplate = ->
-        $scope.post.path = $scope.selectedTemplate.path_set_date
-        $scope.post.body = $scope.selectedTemplate.body
-        $scope.previewHtml= marked $scope.post.body
+    $scope.selectTemplate = ->
+      $scope.post.path = $scope.selectedTemplate.path_set_date
+      $scope.post.body = $scope.selectedTemplate.body
+      $scope.previewHtml= marked $scope.post.body
+    $scope.changePath = (path) ->
+      $scope.post_path_split = path.split "/"
+    $scope.changeBody = ->
+      $scope.previewHtml= marked $scope.post.body
 
-      $scope.changeBody = ->
-        $scope.previewHtml= marked $scope.post.body
+    $scope.addTag = ->
+      $scope.post.tags << $scope.addedTag
 
-      $scope.addTag = ->
-        $scope.post.tags << $scope.addedTag
-
-      $scope.wipPost = (post) ->
-        if post.aasm_state == "new"
-          @postService.create post
-          $scope.post.aasm_state = "wip"
-          $scope.wip = true
-        else if  post.aasm_state == "wip"
-          @postService.update post, post
+    $scope.wipPost = (post) ->
+      if post.aasm_state == "new"
+        @postService.create post
+        $scope.post.aasm_state = "wip"
+        $scope.saved = true
+      else if  post.aasm_state == "wip"
+        @postService.update post, post
+        $scope.saved = true
+      $timeout( ->
+        $scope.saved = false
+      ,1500)
 
     serverErrorHandler = ->
         alert("サーバーでエラーが発生しました。画面を更新し、もう一度試してください。")

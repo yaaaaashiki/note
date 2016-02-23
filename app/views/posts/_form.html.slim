@@ -1,4 +1,8 @@
 .row[ng-controller="PostCtrl" ng-init="init()"]
+  .alert.alert-success[role="alert" ng-show="saved"]
+    | Well done! You
+    strong
+      |  successfully Posts!
   .col-md-6.col-sm-5.editer.post-editer
     form.post-form
       .form-group
@@ -7,7 +11,7 @@
             | 投稿編集
           select#selectbasic.form-control[name="selectbasic" ng-model="selectedTemplate" ng-options="template.path_set_date for template in templates" ng-change="selectTemplate()"]
 
-          input#path.form-control[type="text" placeholder="Title" ng-model="post.path"]
+          input#path.form-control[type="text" placeholder="Title" ng-model="post.path" ng-change="changePath(post.path)"]
         textarea#textarea.form-control.body-area.tabIndent[name="textarea" ng-model="post.body" ng-change="changeBody()" placeholder="本文"]
 
         .form-inline
@@ -18,13 +22,19 @@
           input#tag[type="text" placeholder="Tag" ng-model="addedTag" ng-change="addTag"]
         .form-bottom
           .btn-group
-            span[ng-show="wip"]
-              |  Succses WIP!
-            button#button1id.btn.btn-success[name="button1id" ng-click="wipPost(post)"]
-              | Save Post
-            button#button2id.btn.btn-danger[name="button2id"]
+            button.btn.btn-success[ng-click="wipPost(post)"]
               | Save Post
   .col-md-6.col-sm-7
-    h1
-      | {{post.path}}
-    #preview.post-view[ng-bind-html="previewHtml"]
+    .post-view
+      h4.path
+        a[ng-href="/" ng-repeat="dir in post_path_split"]
+          |  /{{dir}}
+      h1.title
+        a.click.click-show[ng-href="/posts/{{post.id}}"]
+          |  {{post.path.split("/")[post.path.split("/").length -1]}}
+      .post-data
+        span.updated_at
+          |  {{post.to_json_updated_at}}
+        span.updated_user.is-right
+          |  {{post.updated_user.name}}
+      .post-body[ng-bind-html="previewHtml"]

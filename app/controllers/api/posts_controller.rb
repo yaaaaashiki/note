@@ -23,7 +23,7 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    render json: @post.to_json(include: [:tags, created_user: {except: :password_digest}, updated_user: {except: :password_digest}])
+    render json: @post.to_json(include: [:tags, updated_user: {except: :password_digest}])
   end
 
   def new
