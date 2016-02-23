@@ -13,4 +13,4 @@
       |  {{post.to_json_updated_at}}
     span.updated_user.is-right
       |  {{post.updated_user.name}}
-  #preview[style="height:800px;overflow:auto;" ng-bind-html="previewHtml"]
+  .post-body#preview[ng-bind-html="previewHtml"]
