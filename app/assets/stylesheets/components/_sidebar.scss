@@ -1,0 +1,69 @@
+@import "settings/variables/_color.scss";
+@import "settings/variables/_media.scss";
+
+
+@media#{$over_small} {
+  div.main-content{
+    margin-left: 80px;
+  }
+  div.sidebar{
+    padding : 0px;
+    height : 100%;
+    width:80px;
+    position: fixed;
+    .nav-sidebar{
+      height : 100%;
+      ul{
+        li{
+          a{
+            margin : 0 auto;
+            margin-top: 15px;
+            padding : 0px;
+            text-align : center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media#{$small} {
+  div.main-content{
+    margin-left: 0px;
+  }
+  .sidebar{
+    .nav-sidebar{
+      ul.nav{
+        li{
+          width: 16.66%;
+          padding: 0px;
+          float:left;
+          border:1px solid #ddd;
+          box-sizing :border-box;
+          a{
+            margin : 0 auto;
+            margin-top: 15px;
+            padding : 0px;
+            i{
+              font-size: 1.5em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+div.sidebar{
+  .nav-sidebar{
+    background-color : $white;
+    ul{
+      li{
+        background-color : $white;
+        a{
+          color : $sub-color;
+          text-align : center;
+        }
+      }
+    }
+  }
+}

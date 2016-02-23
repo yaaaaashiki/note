@@ -17,52 +17,7 @@
 
     <div class="container">
       <div class="row row-content">
-        <div class="sidebar">
-          <nav class="nav-sidebar">
-            <ul class="nav">
-                <li class="active">
-                  <a ng-href="/posts/new">
-                    <i class="fa fa-pencil fa-3x"></i>
-                    <br>
-                    New Post
-                  </a>
-                </li>
-                <li>
-                  <a ng-href="/">
-                    <i class="fa fa-home fa-3x"></i>
-                    <br>
-                    HOME
-                  </a>
-                </li>
-                <li>
-                  <a href="/posts">
-                    <i class="fa fa-file-text-o fa-3x"></i>
-                    <br>
-                    Posts
-                  </a>
-                </li>
-                <li>
-                  <a href="/templates">
-                    <i class="fa fa-file-code-o fa-3x"></i>
-                    <span>Templates<span>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <i class="fa fa-tags fa-3x"></i>
-                    <br>
-                    Tags
-                  </a>
-                </li>
-                <li>
-                  <a href="/logout">
-                    <i class="fa fa-sign-out fa-3x"></i>
-                    <span>Logout</span>
-                  </a>
-                </li>
-            </ul>
-          </nav>
-        </div>
+        <%= render "share/side" %>
         <div class="main-content">
           <%= yield %>
         </div>
