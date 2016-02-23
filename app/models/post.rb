@@ -36,33 +36,32 @@ class Post < ActiveRecord::Base
   # }
   # ]
 
-  def self.insert tree, paths, post
+  def self.insert tree_posts, paths, post
     # if else : treeのrootにpathsの先頭と同じものがあるか
-    if tree.select{|block| block[:name] == paths.first}.present?
+    if tree_posts.select{|tree_post| tree_post.name == paths.first}.present?
       # tree = [{name: "a", children: [...]}, {name: "b", children: [...]}]
       # paths = ["b", "..", ...]
 
       # next_tree = {name: "b", children: [...]}
-      next_tree = tree.select{|block| block[:name] == paths.first}.first
+      next_tree = tree_posts.select{|tree_post| tree_post.name == paths.first}.first
       # next_tree[:children]
-      next_tree[:children] = [] unless next_tree[:children]
       # next_tree[:children], paths = ["..", ...], post
-      insert next_tree[:children], paths.drop(1), post
+      insert next_tree.tree_posts, paths.drop(1), post
     else
       # treeの最直下にパスの先頭と同じディレクトリが無いとき
       # tree 最直下にパスの先頭を追加
-      tree << {name: paths.first}
+      tree_posts << TreePost.new(name: paths.first)
 
       # pathsが複数あるとき => タイトルじゃ無いとき
       if paths.count > 1
         # ツリーにブロック追加 {name: paths.frst, children: []} , パスの先頭を取り除いく, post
-        insert (tree.select{|block| block[:name] == paths.first}.first[:children] = []), paths.drop(1), post
+        insert (tree_posts.select{|tree_post| tree_post.name == paths.first}.first.tree_posts), paths.drop(1), post
       else
         # paths が一つのみの場合 => タイトルの時
-        tree.select{|block| block[:name] == paths.first}.first[:post] = post
+        tree_posts.select{|tree_post| tree_post.name == paths.first}.first.post = post
       end
     end
-    tree
+    tree_posts
   end
 
   def self.tree

@@ -33,6 +33,9 @@
           border: 16px solid transparent;
           border-right-color: #fff;
         }
+        li.main.active:after{
+          border-right-color: $black;
+        }
       }
     }
   }

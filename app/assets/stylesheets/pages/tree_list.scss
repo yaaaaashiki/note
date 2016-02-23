@@ -5,22 +5,24 @@
   padding : 0px;
 }
 
-tree{
-  height: 500px;
-  overflow: auto;
-}
-
 .tree-ul{
-  -webkit-padding-start: 20px;
+  -webkit-padding-start: 0px;
 }
 .treeview{
   margin-bottom: 0px;
   padding : 0px;
 }
 
+.list-group-item.tree-li.active{
+  background-color : $black /1.5
+}
 .list-group-item.tree-li{
-  background-color : $white;
+  outline: 0px;
+  background-color : $black;
+  border-color: $black / 1.2;
+  color: $white;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+  border-left: 0px;
   border-radius: 0px;
 }

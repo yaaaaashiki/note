@@ -1,7 +1,8 @@
-li.list-group-item.tree-li[ng-click="preview($event, #{tree_post[:post].try(:id) || 'null'})"]
+li.list-group-item.tree-li[ng-click="preview($event, #{tree_post.post.try(:id) || 'null'})"]
   span.badge
-    = tree_post[:children].try :length
-  = tree_post[:name]
-- tree_post[:children].try(:each)do |tree_post|
+    = tree_post.posts_count_zero?
+  = tree_post.post.present? ? "L" : "|"
+  = tree_post.name
+- tree_post.tree_posts.each do |tree_post|
   ul.tree-ul[style="display: none;"]
     = render partial: "tree", locals: {tree_post: tree_post}
