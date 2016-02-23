@@ -1,6 +1,6 @@
 .post-view
   h4.path
-    a[ng-href="/" ng-repeat="dir in post_path_split"]
+    a[ng-href="posts?q%5Bpath_cont={{dir}}" ng-repeat="dir in post_path_split"]
       |  /{{dir}}
   h1.title
     a.click.click-show[ng-href="/posts/{{post.id}}"]

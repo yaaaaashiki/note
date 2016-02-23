@@ -1,9 +1,7 @@
 .post-view
   h4.path
     - @post.path.split("/").each do |category|
-      a[ng-href="/"]
-        | /
-        = category
+      = link_to "/#{category}", posts_path( q:{path_cont: category})
   h1.title
     = @post.path.split("/").last
     span

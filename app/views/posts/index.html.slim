@@ -26,7 +26,8 @@
           tr
             td
               span.path
-              = post.path
+                - post.path.split("/").each do |category|
+                  = link_to "/#{category}", posts_path( q:{path_cont: category})
               h3
                 a.title[ng-click="preview(#{post.id})"]
                   = post.path.split("/").last
