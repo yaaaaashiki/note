@@ -2,6 +2,7 @@
   h4.path
     - @post.path.split("/").each do |category|
       a[ng-href="/"]
+        | /
         = category
   h1.title
     = @post.path.split("/").last
@@ -13,4 +14,6 @@
       = @post.updated_at
     span.updated_user.is-right
       = @post.updated_user.name
-  .post-body#preview[ng-bind-html="previewHtml"]
+  .post-body#preview
+    / TODO マークダウンコンパイラ統一したい ruby でやるか js でやるか
+    = html_pipeline(@post.body).html_safe

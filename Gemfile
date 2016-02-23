@@ -39,6 +39,12 @@ gem "slim"
 # ページネーション
 gem "kaminari"
 
+# マークダウン サーバーがわで処理する場合
+gem "html-pipeline"
+gem 'rinku'
+gem 'escape_utils'
+gem "github-markdown"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

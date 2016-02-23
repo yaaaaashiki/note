@@ -1,3 +1,4 @@
+require "html/pipeline"
 class PostsController < ApplicationController
   before_action :set_post, only: [:destroy, :show]
   def index
