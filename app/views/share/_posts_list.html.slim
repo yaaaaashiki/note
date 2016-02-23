@@ -1,0 +1,28 @@
+.row[ng-controller="PostsCtrl" ng-init="init()"]
+  .col-md-4
+    .post-list
+      table.table.table-hover.table-posts
+        tr
+          th.posts
+            | Posts
+        - @posts.each do |post|
+          tr
+            td
+              span.path
+                - post.path.split("/").each do |category|
+                  = link_to "/#{category}", posts_path( q:{path_cont: category})
+              h3
+                a.title[ng-click="preview(#{post.id})"]
+                  = post.path.split("/").last
+                span
+                  = link_to edit_post_path(post), class: "click click-edit" do
+                    i.fa.fa-pencil.fa-lg
+                  = link_to post, class: "click click-destroy", method: :delete do
+                    i.fa.fa-trash.fa-lg
+              - post.tags.each do |tag|
+                div
+                  a.css-tag
+                    span
+                      = tag.name
+                p.updated_user_name
+                  = post.updated_user.name
