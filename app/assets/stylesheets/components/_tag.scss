@@ -39,3 +39,20 @@
   border: 10px solid transparent;
   border-left-color: $gley-1;
 }
+.css-tag.form{
+  padding-left: 16px;
+}
+.css-tag.form:before{
+  display: block;
+  content: "✖";
+  position: absolute;
+  font-size: 12px;
+  top: 10px - 6;
+  left: 4px;
+  width: 0;
+  height: 0;
+  color: $white;
+}
+.css-tag.form:hover{
+  color: $base-color;
+}

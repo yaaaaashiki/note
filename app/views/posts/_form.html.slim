@@ -15,11 +15,11 @@
         textarea#textarea.form-control.body-area.tabIndent[name="textarea" ng-model="post.body" ng-change="changeBody()" placeholder="本文"]
 
         .form-inline
-          div[ng-repeat="tag in post.tags"]
-            a.css-tag
+          .tag-list.is-float-left[ng-repeat="tag in post.tags"]
+            a.css-tag.form[ng-click="destroyTag(tag)"]
               span
                 | {{tag.name}}
-          input#tag[type="text" placeholder="Tag" ng-model="addedTag" ng-change="addTag"]
+          input#tag[type="text" placeholder="Tag" ng-model="addedTag" ng-keydown="addTag($event)"]
         .form-bottom
           .btn-group
             button.btn.btn-success[ng-click="wipPost(post)"]
@@ -27,7 +27,7 @@
   .col-md-6.col-sm-7
     .post-view
       h4.path
-        a[ng-href="/" ng-repeat="dir in post_path_split"]
+        a[ng-href="/" ng-repeat="dir in post_path_split track by $index"]
           |  /{{dir}}
       h1.title
         a.click.click-show[ng-href="/posts/{{post.id}}"]

@@ -34,7 +34,6 @@ angular.module 'notefrontApp'
         $scope.post.$promise.then (post) ->
           $scope.previewHtml = marked post.body
           $scope.post_path_split = post.path.split "/"
-          console.log post
       $scope.addedTag = ""
       @currentUserService = new CurrentUser(serverErrorHandler)
       $scope.currentUser = @currentUserService.find()
@@ -66,8 +65,12 @@ angular.module 'notefrontApp'
     $scope.changeBody = ->
       $scope.previewHtml= marked $scope.post.body
 
-    $scope.addTag = ->
-      $scope.post.tags << $scope.addedTag
+    $scope.addTag = (event) ->
+      if event.which is 13
+        $scope.post.tags.push {name: $scope.addedTag }
+        $scope.addedTag = ""
+    $scope.destroyTag = (tag) ->
+      $scope.post.tags
 
     $scope.wipPost = (post) ->
       if post.aasm_state == "new"

@@ -5,7 +5,12 @@ class Template < ActiveRecord::Base
 
 
   def path_set_date
-    Date.today.strftime path
+    Date.today.strftime(path).gsub(/\$(\w)/) do |w|
+      case w
+      when "$u"
+        User.find(User.current_user).name
+      end
+    end
   end
 
 end
