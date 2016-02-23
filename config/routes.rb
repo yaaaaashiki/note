@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get "/service/posts/show.html", to: "service#post_show"
   get "/service/posts/new.html", to: "service#post_new"
 
-  get "/", to: "service#main", as: "top"
+  get "/", to: "main#index", as: "top"
   # get "/posts", to: "service#posts"
   # get "/posts/:id", to: "service#posts"
   # get "/posts/new", to: "service#post"

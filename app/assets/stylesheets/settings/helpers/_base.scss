@@ -1,3 +1,5 @@
+@import "settings/variables/_color.scss";
+
 .is-inline-blocks{
   font-size: 0;
 }
@@ -20,4 +22,15 @@
   float: right;
 }
 
+
+a.click-show{
+  color : $black;
+}
+
+a.click-edit{
+  color: $base-color;
+}
+a.click-destroy{
+  color: $black;
+}
 
