@@ -1,33 +1,32 @@
 .sidebar
   nav.nav-sidebar
     ul.nav
-      li.active
+      li[class="#{sidebar_activete :new_post}"]
         a[ng-href="/posts/new"]
           i.fa.fa-pencil.fa-3x
           p
             |  New Post
-      li
+      li[class="#{sidebar_activete :main}"]
         a[ng-href="/"]
           i.fa.fa-home.fa-3x
           p
             |  HOME
-      li
+      li[class="#{sidebar_activete :posts}"]
         a[href="/posts"]
           i.fa.fa-file-text-o.fa-3x
           p
             |  Posts
-      li
+      li[class="#{sidebar_activete :template}"]
         a[href="/templates"]
           i.fa.fa-file-code-o.fa-3x
           p
             | Templates
-
-      li
+      li[class="#{sidebar_activete :tag}"]
         a[href=""]
           i.fa.fa-tags.fa-3x
           p
             |  Tags
-      li
+      li[class="#{sidebar_activete :logout}"]
         a[href="/logout"]
           i.fa.fa-sign-out.fa-3x
           p

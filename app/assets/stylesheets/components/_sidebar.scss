@@ -58,11 +58,13 @@ div.sidebar{
     background-color : $white;
     ul{
       li{
-        background-color : $white;
         a{
           color : $sub-color;
           text-align : center;
         }
+      }
+      li.active{
+        background-color : $gley-2;
       }
     }
   }
