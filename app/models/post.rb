@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
   include CurrentUser
   include JsonModel
 
+  has_many :post_tags
+  has_many :tags, through: :post_tags
+
   aasm do
     state :new, initial: true
     state :wip

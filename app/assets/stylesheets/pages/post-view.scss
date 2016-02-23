@@ -2,13 +2,31 @@
 // TODO テーブルのデザイン要調整
 
 .post-view{
+  // border-left: 1px solid $base-color;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   .path{
-    color: #aaa;
+    a{
+      color: $gley-1;
+    }
   }
   .title{
     margin: 0px;
   }
 
+  .post-data{
+    .updated_at{
+
+    }
+    .updated_user{
+      font-size: 1.4em;
+    }
+  }
+
+  h1{
+    font-size: 32px;
+  }
 
   table{
     border-collapse: collapse;

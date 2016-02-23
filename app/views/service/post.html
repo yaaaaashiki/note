@@ -1,22 +1,28 @@
 <div class="row" ng-controller="PostCtrl" ng-init="init()">
   <div class="col-md-6 col-sm-5 editer post-editer">
-    <form ng-submit="wipPost(post)" class="post-form">
+    <form  class="post-form">
       <div class="form-group">
         <div class="form-header">
           <h3>投稿編集</h3>
-          <select id="selectbasic" name="selectbasic" class="form-control" ng-model="selectedTemplate" ng-options="template.path for template in templates" ng-change="selectTemplate()">
+          <select id="selectbasic" name="selectbasic" class="form-control" ng-model="selectedTemplate" ng-options="template.path_set_date for template in templates" ng-change="selectTemplate()">
           </select>
           <input id="path" type="text" placeholder="Title" class="form-control" ng-model="post.path" >
         </div>
         <textarea class="form-control body-area tabIndent" id="textarea" name="textarea"
           ng-model="post.body" ng-change="changeBody()" placeholder="本文">
         </textarea>
+        <div class="form-inline">
+          <div ng-repeat="tag in post.tags">
+            <a class="css-tag"><span>{{tag.name}}</span></a>
+          </div>
+          <input id="tag" type="text" placeholder="Tag" ng-model="addedTag" ng-change="addTag">
+        </div>
         <div class="form-bottom">
           <div class="btn-group">
             <span ng-show="wip">
               Succses WIP!
             </span>
-            <button id="button1id" name="button1id" class="btn btn-success" type="submit">Save Post</button>
+            <button id="button1id" name="button1id" class="btn btn-success" ng-click="wipPost(post)">Save Post</button>
             <button id="button2id" name="button2id" class="btn btn-danger">Save Post</button>
           </div>
         </div>
