@@ -7,7 +7,7 @@
       |  {{post.path.split("/")[post.path.split("/").length -1]}}
     span[ng-show="post"]
       a.click.click-edit[ng-href="/posts/{{post.id}}/edit"]
-        i.fa.fa-pencil.fa-lg
+        i.fa.fa-pencil
   .post-data
     span.updated_at
       |  {{post.to_json_updated_at}}

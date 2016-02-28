@@ -1,6 +1,6 @@
 class MainController < ApplicationController
   def index
-    @tree_posts = Post.tree
+    @root_tree = TreePost.all
     @posts = Post.page(params[:page]).order(id: :desc)
   end
 end

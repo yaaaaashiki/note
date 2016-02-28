@@ -1,6 +1,6 @@
 .row[ng-controller="MainCtrl" ng-init="init()"]
   .col-md-2.col-sm-4.tree-list
-    - @tree_posts.each do |tree_post|
+    - @root_tree.tree_posts.each do |tree_post|
       ul.treeview
         == render partial: "tree", locals: {tree_post: tree_post}
   .col-md-7.col-sm-8

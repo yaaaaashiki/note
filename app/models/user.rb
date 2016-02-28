@@ -9,13 +9,11 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   has_secure_password
 
-
-  def self.current_user= user
+  def self.current_user=(user)
     Thread.current[:user_id] = user
   end
 
   def self.current_user
     Thread.current[:user_id]
   end
-
 end
