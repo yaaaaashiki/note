@@ -1,4 +1,4 @@
-require "html/pipeline"
+require 'html/pipeline'
 class PostsController < ApplicationController
   before_action :set_post, only: [:destroy, :show]
   def index
@@ -20,15 +20,13 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-     format.html {
-      redirect_to posts_url
-     }
+      format.html { redirect_to posts_url }
     end
   end
 
   private
+
   def set_post
     @post = Post.find params[:id]
   end
-
 end

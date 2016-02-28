@@ -5,7 +5,7 @@ class LoginController < ApplicationController
 
   def login
     user = User.find_by(name: params[:login_name])
-    if user && user.authenticate(params[:password]) then
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       return redirect_to top_path
     end
@@ -14,7 +14,6 @@ class LoginController < ApplicationController
 
   def logout
     reset_session
-    return redirect_to login_path
+    redirect_to login_path
   end
-
 end

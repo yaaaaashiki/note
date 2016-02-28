@@ -15,12 +15,12 @@ module CurrentUser
     User.current_user
   end
 
-  def set_current_user # rubocop:disable Style/AccessorMethodName
+  def set_current_user
     self.created_user_id = current_user_id if current_user_id.present?
     true
   end
 
-  def set_updated_user # rubocop:disable Style/AccessorMethodName
+  def set_updated_user
     self.updated_user_id = current_user_id if current_user_id.present?
     true
   end
