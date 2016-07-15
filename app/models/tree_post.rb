@@ -1,6 +1,6 @@
 class TreePost
   include ActiveModel::Model
-  attr_accessor :tree_posts, :name, :post, :dipth
+  attr_accessor :tree_posts, :name, :post, :dipth, :parent
 
   def self.all
     Post.tree
@@ -44,12 +44,17 @@ class TreePost
     end
   end
 
+  def full_path
+    parent.present? ? "#{name}/#{parent.full_path}" : ""
+  end
+
   private
 
   def <<(attributes = {})
     attributes[:dipth] ||= @dipth + 1
     tree_post = TreePost.new(attributes)
     tree_posts << tree_post
+    tree_post.parent = self
     tree_post
   end
 

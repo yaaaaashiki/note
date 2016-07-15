@@ -28,9 +28,11 @@ angular.module 'notefrontApp'
 
     $scope.searchPosts = ->
       params = {
-        "q[path_cont]" : $scope.search.path,
-        "q[body_cont]" : $scope.search.body,
-        "q[updated_user_name_cont]" : $scope.search.updated_user_name,
+        q : {
+          path_cont : $scope.search.path,
+          body_cont : $scope.search.body,
+          updated_user_name_cont : $scope.search.updated_user_name,
+        }
       }
       $scope.posts = @postService.search(params)
 
