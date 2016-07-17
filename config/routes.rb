@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :tree_posts, default: { format: :json }, only: :index
   end
 
-  resources :users, only: [:show, :new, :create]
+  resources :users, only: [:index, :show, :edit, :update]
   resource :session, only: [:new, :create, :destroy]
 
   namespace :admin do
