@@ -15,10 +15,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/", to: "users#index"
-    resources :users
+    resources :users do
+      resources :admin_users
+    end
     resource :session
-    resources :posts
-    resources :admin_users
   end
 
   # angular 関連 いずれ消したい
