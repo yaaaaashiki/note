@@ -1,4 +1,4 @@
-h1 Users
+h1 ユーザ一覧
 
 = link_to "新規作成", new_admin_user_path, class: "btn btn-primary"
 
@@ -6,6 +6,8 @@ table.table
   tr
     th ユーザネーム
     th アドレス
+    th
+    th
   - @users.each do |user|
     tr
       td = user.name

@@ -44,6 +44,8 @@ gem 'rinku'
 gem 'escape_utils'
 gem "github-markdown"
 
+gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 

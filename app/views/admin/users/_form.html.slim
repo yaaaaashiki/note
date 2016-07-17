@@ -1,14 +1,10 @@
-= form_for [:admin, user] do |f|
+= bootstrap_form_for [:admin, user] do |f|
   .form-group
-    = f.label :name
-    = f.text_field :name, class: "form-control"
+    = f.text_field :name
   .form-group.field
-    = f.label :email
-    = f.text_field :email, class: "form-control"
+    = f.text_field :email
   .form-group
-    = f.label :password
-    = f.password_field :password, class: "form-control"
+    = f.password_field :password
   .form-group
-    = f.label :password_agein
-    = f.password_field :password_agein, class: "form-control"
+    = f.password_field :password_agein
   = f.submit class: "btn btn-primary"

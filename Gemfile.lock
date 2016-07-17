@@ -6,6 +6,12 @@ GIT
       activerecord (~> 4.0)
       activesupport (~> 4.0)
 
+GIT
+  remote: git://github.com/bootstrap-ruby/rails-bootstrap-forms.git
+  revision: de93b855371937b05ab1f83339544c82da7738bb
+  specs:
+    bootstrap_form (2.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -254,6 +260,7 @@ DEPENDENCIES
   bcrypt-ruby
   better_errors
   binding_of_caller
+  bootstrap_form!
   byebug
   coffee-rails (~> 4.1.0)
   escape_utils
@@ -285,4 +292,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.12.5
