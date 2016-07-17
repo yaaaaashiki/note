@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :admin do
+    get "/", to: "users#index"
     resources :users
     resource :session
     resources :posts

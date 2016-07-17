@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Admin::AdminUsersController < AdminController
   skip_before_filter :authenticated
   before_action :set_user, only: [:show, :update, :destroy]
 

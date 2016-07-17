@@ -28,4 +28,9 @@ class User < ActiveRecord::Base
   def self.reset_current_user
     Thread.current[:user_id] = nil
   end
+
+  def admin?
+    admin_user.present?
+  end
+
 end

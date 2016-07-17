@@ -1,0 +1,18 @@
+- if @user.errors.present?
+  = @user.errors.messages
+
+h1 サインアップ
+= form_for @user do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-controll"
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: "form-controll"
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: "form-controll"
+  .form-group
+    = f.label :password_agein
+    = f.password_field :password_agein, class: "form-controll"
+  = f.submit class: "btn btn-primary"
