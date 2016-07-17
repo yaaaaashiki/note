@@ -27,7 +27,7 @@
           p
             |  Tags
       li[class="#{sidebar_activete :logout}"]
-        a[href="/logout"]
+        = link_to session_path, method: :delete do
           i.fa.fa-sign-out.fa-3x
           p
             | Logout

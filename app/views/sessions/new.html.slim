@@ -1,0 +1,14 @@
+- if @success.present?
+  .alert.alert-success[role="alert"]
+    | Well done! You
+    strong
+      |  successfully Posts!
+
+h1 Login
+= form_for @user, url: session_path, html: { class: "form-horizontal" } do |f|
+  = f.text_field :name, class: "span3 form-control", placeholder: "ユーザ名"
+  = f.password_field :password, class: "span3 form-control"
+  = f.submit "ログイン", class: "btn btn-info"
+= link_to "サインアップ", new_user_path, class: "btn btn-primary"
+
+

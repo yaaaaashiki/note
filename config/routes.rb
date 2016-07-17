@@ -12,12 +12,14 @@ Rails.application.routes.draw do
   end
 
   # user login 関連
-  get 'login', to: 'login#index', as: 'login'
-  get 'sign_up', to: "login#sign_up", as: "sign_up"
-  get 'logout', to: 'login#logout'
-  post 'login/login'
-  post 'create_user', to: "login#create_user", as: "create_user"
+  # get 'login', to: 'login#index', as: 'login'
+  # get 'sign_up', to: "login#sign_up", as: "sign_up"
+  # get 'logout', to: 'login#logout'
+  # post 'login/login'
+  # post 'create_user', to: "login#create_user", as: "create_user"
 
+  resources :users
+  resource :session
 
 
   # angular 関連 いずれ消したい
