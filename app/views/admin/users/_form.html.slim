@@ -7,4 +7,11 @@
     = f.password_field :password
   .form-group
     = f.password_field :password_agein
+  hr
+  .form-group
+    = f.number_field :joinyear
+  .form-group
+    = f.select :status, User.statuses_i18n.to_a.map(&:reverse!)
+  .form-group
+    = f.select :role, User.roles_i18n.to_a.map(&:reverse!)
   = f.submit class: "btn btn-primary"

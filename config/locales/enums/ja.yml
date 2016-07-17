@@ -1,0 +1,11 @@
+ja:
+  enums:
+    user:
+      role:
+        professor: 教授
+        assistant_professor: 助教授
+        master: 修士
+        bachelor: 学部生
+      status:
+        enrolled: 在籍中
+        graduation: 卒業済

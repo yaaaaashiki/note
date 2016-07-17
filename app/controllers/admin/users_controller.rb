@@ -49,6 +49,10 @@ class Admin::UsersController < AdminController
       :name,
       :email,
       :password,
+      :joinyear,
+      :role,
+      :status,
+      :description
     )
   end
 end
