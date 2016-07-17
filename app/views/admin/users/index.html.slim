@@ -1,6 +1,6 @@
 h1 Users
 
-
+= link_to "新規作成", new_admin_user_path, class: "btn btn-primary"
 
 table.table
   tr
@@ -10,6 +10,8 @@ table.table
     tr
       td = user.name
       td = user.email
+      td = link_to "編集", edit_admin_user_path(user), class: "btn btn-info"
+      td = link_to "削除", admin_user_path(user), method: :delete, class: "btn btn-danger"
 
 
 
