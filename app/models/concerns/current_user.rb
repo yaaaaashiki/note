@@ -12,7 +12,7 @@ module CurrentUser
   end
 
   def current_user_id
-    User.current_user
+    User.current_user.try(:id)
   end
 
   def set_current_user
