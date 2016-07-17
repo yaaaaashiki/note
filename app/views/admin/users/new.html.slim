@@ -1,8 +1,7 @@
-.col-md-4.col-md-offset-4
-  - if @user.errors.present?
-    .alert.alert-danger role="alert"
-      - @user.errors.full_messages.each do |message|
-        p = message
-  h1 ユーザ新規作成
-  == render "form", user: @user
-  = link_to "戻る", admin_users_path, class: "btn btn-default"
+- if @user.errors.present?
+  .alert.alert-danger role="alert"
+    - @user.errors.full_messages.each do |message|
+      p = message
+h1 ユーザ新規作成
+== render "form", user: @user
+= link_to "戻る", admin_users_path, class: "btn btn-default"
