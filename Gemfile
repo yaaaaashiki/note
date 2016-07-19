@@ -38,6 +38,12 @@ gem "slim"
 # ページネーション
 gem "kaminari"
 
+#rails c
+gem "rb-readline"
+
+#seed
+gem 'seed-fu', '~> 2.3'
+
 # マークダウン サーバーがわで処理する場合
 gem "html-pipeline"
 gem 'rinku'
