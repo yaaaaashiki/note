@@ -1,24 +1,25 @@
 Rails.application.routes.draw do
-
   get "/", to: "main#index", as: "top"
   resources :posts
 
   namespace :api do
-    resources :current_users, default: {format: :json}, only: :show
+    resources :current_users, default: { format: :json }, only: :show
     resources :users
-    resources :posts, default: {format: :json}
-    resources :templates, default: {format: :json}
-    resources :tree_posts, default: {format: :json}, only: :index
+    resources :posts, default: { format: :json }
+    resources :templates, default: { format: :json }
+    resources :tree_posts, default: { format: :json }, only: :index
   end
 
-  # user login 関連
-  get 'login', to: 'login#index', as: 'login'
-  get 'sign_up', to: "login#sign_up", as: "sign_up"
-  get 'logout', to: 'login#logout'
-  post 'login/login'
-  post 'create_user', to: "login#create_user", as: "create_user"
+  resources :users, only: [:index, :show, :edit, :update]
+  resource :session, only: [:new, :create, :destroy]
 
-
+  namespace :admin do
+    get "/", to: "users#index"
+    resources :users do
+      resources :admin_users
+    end
+    resource :session
+  end
 
   # angular 関連 いずれ消したい
 
@@ -40,8 +41,4 @@ Rails.application.routes.draw do
   get "/templates", to: "service#templates"
   get "/templates/new", to: "service#template"
   get "/templates/:id", to: "service#template"
-
-
-
-
 end

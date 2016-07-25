@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title
+      | NoteAdmin
+    = stylesheet_link_tag    'admin/admin', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    link[rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"]
+    = csrf_meta_tags
+    meta[name="viewport" content="width=device-width,user-scalable=0"]
+  body.admin
+    .container-fluid
+      .row
+        .col-md-3.sidebar
+        .col-md-6
+          h1 管理画面
+          = yield

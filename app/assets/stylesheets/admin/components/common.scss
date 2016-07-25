@@ -1,0 +1,13 @@
+@import "settings/variables/_color.scss";
+html{
+  height: 100%;
+  body.admin{
+    height: 100%;
+    .container-fluid{
+      height: 100%;
+      .row{
+        height: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@import "settings/variables/_color.scss";
+body.admin{
+  .sidebar{
+    background-color: $black;
+    height: 100%;
+  }
+}

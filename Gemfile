@@ -38,12 +38,20 @@ gem "slim"
 # ページネーション
 gem "kaminari"
 
+#rails c
+gem "rb-readline"
+
+#seed
+gem 'seed-fu', '~> 2.3'
+
 # マークダウン サーバーがわで処理する場合
 gem "html-pipeline"
 gem 'rinku'
 gem 'escape_utils'
 gem "github-markdown"
 
+gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
+gem 'enum_help'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
@@ -81,5 +89,9 @@ group :development do
 end
 
 group :production do
+<<<<<<< HEAD
+  #gem 'pg',             '0.17.1'
+=======
+>>>>>>> develop
   gem 'rails_12factor', '0.0.2'
 end
