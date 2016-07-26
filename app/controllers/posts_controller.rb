@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:destroy, :show]
   def index
     @search = Post.search(params[:q])
-    @posts = @search.result
-    @posts = @posts.order(updated_at: :desc)
+    @posts = @search.result.page(params[:page])
+    @posts = @posts.order(updated_at: :desc).page(params[:page])
   end
 
   def new
