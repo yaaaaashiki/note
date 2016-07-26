@@ -3,10 +3,11 @@
 
   User.seed do |u| 
   u.id = i
-  u.name = %w(user 篠原梓 加賀広樹 松尾泰
-                源大輔 杉田健 勝山基徳 大友玲奈 山本将英 石原真紀保)[i - 1]
+  #user_name はアルファベット入力で
+  u.name = %w(user shinohara kaga matsuo
+                minamoto sugita katsuyama ootomo yamamoto ishihara)[i - 1]
   u.email = "test_seed#{i}@email.com" 
-  u.password = "passward"
+  u.password = "password"
   u.created_at = DateTime.current
   u.updated_at = DateTime.current
   u.joinyear = 2016 
