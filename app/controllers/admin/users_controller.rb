@@ -25,11 +25,14 @@ class Admin::UsersController < AdminController
   def edit
   end
 
+  def show 
+  end
+
   def update
-    if @user.update user_params
+    if @user.update user_params 
       redirect_to admin_users_path
     else
-      render :new
+      render 'edit'
     end
   end
 
