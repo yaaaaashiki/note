@@ -2,7 +2,7 @@ li.list-group-item.tree-li[ng-click="previewTree($event, #{tree_post.post.try(:i
   span.badge
     = tree_post.posts_count_zero?
   span[class="ml#{10 * tree_post.dipth}"]
-    = tree_post.name
+    = truncate(tree_post.name, length: 15)
 - tree_post.tree_posts.each do |tree_post|
   ul.tree-ul[style="display: none;"]
     = render partial: "tree", locals: {tree_post: tree_post}
