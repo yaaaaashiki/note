@@ -5,15 +5,15 @@
       .input-group
         span.input-group-addon
           i.fa.fa-search
-        = f.text_field :path_cont, class: "form-control", placeholder: "Search for path"
+        = f.text_field :path_start, class: "form-control", placeholder: "Search for path"
       .input-group
         span.input-group-addon
           i.fa.fa-user
-        = f.text_field :updated_user_name_cont, class: "form-control", placeholder: "Search for path"
+        = f.text_field :updated_user_name_cont, class: "form-control", placeholder: "Search for user"
       .input-group
         span.input-group-addon
           i.fa.fa-file-text-o
-        = f.text_field :body_cont, class: "form-control", placeholder: "Search for path"
+        = f.text_field :body_cont, class: "form-control", placeholder: "Search for content"
       .action-button
         = button_tag type: :submit, class: "btn btn-primary" do
           i.fa.fa-search
