@@ -2,6 +2,7 @@ h1 ユーザ一覧
 
 = link_to "新規作成", new_admin_user_path, class: "btn btn-primary"
 
+
 table.table
   tr
     th ユーザネーム
@@ -18,6 +19,7 @@ table.table
       td = user.role_i18n
       td = user.status_i18n
       td = user.admin? ? "管理者" : link_to("管理者権限を付与", admin_user_admin_users_path(user), method: :post, class: "btn btn-warning", data: { confirm:  "#{user.name} に管理者権限を付与してもよろしいですか?" })
+      td = user.admin? ? link_to("管理者権限を剥奪", admin_user_admin_user_path(user,user.admin_user), method: :delete, class: "btn btn-warning", data: { confirm:  "#{user.name} の管理者権限を剥奪してもよろしいですか?" }) : "管理者"
       td = link_to "編集", edit_admin_user_path(user), class: "btn btn-info"
       td = link_to "削除", admin_user_path(user), method: :delete, class: "btn btn-danger", data: { confirm:  "#{user.name} を削除してもよろしいですか?" }
 
