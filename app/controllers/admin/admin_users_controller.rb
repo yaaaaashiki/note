@@ -1,14 +1,17 @@
 class Admin::AdminUsersController < AdminController
-  before_action :set_user, only: [:create]
-
-  def show
-  end
-
+  before_action :set_user, only: [:create, :destroy]
+  before_action :set_admin_user, only: [:destroy]
+  
   def new
   end
 
   def create
     @user.create_admin_user
+    redirect_to admin_users_path
+  end
+
+  def destroy
+    @admin_user.destroy
     redirect_to admin_users_path
   end
 
