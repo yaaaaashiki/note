@@ -30,10 +30,10 @@
             td
               span.path
                 - post.path.split("/").each do |category|
-                  = link_to "/#{category}", posts_path( q:{path_cont: category})
+                  = link_to "/#{category}", posts_path(q:{path_cont: category})
               h3
                 a.title[ng-click="preview(#{post.id})"]
-                  = post.path.split("/").last
+                  = link_to post.path.split("/").last, post_path(post.id)
                 span
                   = link_to edit_post_path(post), class: "click click-edit" do
                     i.fa.fa-pencil.fa-lg
@@ -47,7 +47,4 @@
               p.updated_user_name
                 = post.updated_user.name
 
-  .col-md-8
-    = render partial: "share/post_preview"
-
-
+  
