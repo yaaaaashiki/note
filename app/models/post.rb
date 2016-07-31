@@ -20,6 +20,8 @@ class Post < ActiveRecord::Base
 
   before_create :wip_save
 
+  paginates_per 10
+
   def self.tree
     root_tree = TreePost.new
     all.each do |post|
