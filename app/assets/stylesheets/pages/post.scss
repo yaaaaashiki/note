@@ -4,7 +4,7 @@
 .ng-scope{
   div.col-md-4{
     height: 100%;
-    width: 45%;
+    width: 65%;
     form.post-form{
       height: 20%;
       div{
@@ -38,7 +38,7 @@
     }
     div.post-list{
       height: 80%;
-      overflow: auto;
+      //overflow: auto;
       table.table-posts{
         th.posts{
           border-top: 0px;
